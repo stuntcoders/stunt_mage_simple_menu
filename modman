@@ -1,6 +1,6 @@
 app/code/local/Stuntcoders/Menus                                        app/code/local/Stuntcoders/Menus
 
-app/design/adminhtml/default/default/layout/stuntcoders_menus.xml       app/design/frontend/default/default/layout/ajaxcart.xml
+app/design/adminhtml/default/default/layout/stuntcoders_menus.xml       app/design/frontend/default/default/layout/stuntcoders_menus.xml
 app/design/adminhtml/default/default/template/stuntcoders/menus/*        app/design/adminhtml/default/default/template/stuntcoders/menus
 
 app/etc/modules/*                                                       app/etc/modules/
