@@ -1,9 +1,9 @@
 app/code/local/Stuntcoders/Menus                                        app/code/local/Stuntcoders/Menus
 
-app/design/adminhtml/default/default/layout/stuntcoders_menus.xml       app/design/frontend/default/default/layout/stuntcoders_menus.xml
-app/design/adminhtml/default/default/template/stuntcoders/menus/*        app/design/adminhtml/default/default/template/stuntcoders/menus
+app/design/adminhtml/default/default/layout/stuntcoders_menus.xml       app/design/adminhtml/default/default/layout/stuntcoders_menus.xml
+app/design/adminhtml/default/default/template/stuntcoders/menus/*       app/design/adminhtml/default/default/template/stuntcoders/menus
 
 app/etc/modules/*                                                       app/etc/modules/
 
-skin/adminhtml/default/default/css/stuntcoders_menus.css                skin/adminhtml/default/default/css/stuntcoders_menus.css
-js/stuntcoders/menus*                                                   js/stuntcoders/menus*
+skin/adminhtml/default/default/stuntcoders_menus.css                    skin/adminhtml/default/default/stuntcoders_menus.css
+js/stuntcoders/menus/*                                                  js/stuntcoders/menus/
