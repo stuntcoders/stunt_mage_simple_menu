@@ -1,0 +1,11 @@
+<div class="content-header">
+    <table cellspacing="0">
+        <tr>
+            <td><h3 class="icon-head head-blog"><?php echo Mage::helper('stuntcoders_menus')->__('Menu Manager') ?></h3></td>
+            <td class="a-right">
+                <?php echo $this->getChildHtml("menus.addnew"); ?>
+            </td>
+        </tr>
+    </table>
+</div>
+<?php echo $this->getChildHtml("menus.grid"); ?>

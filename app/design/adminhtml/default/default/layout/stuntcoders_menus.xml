@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <stuntcoders_menus_menus_index>
+        <reference name="content">
+            <block type="stuntcoders_menus/menus" name="menus.index" template="stuntcoders/menus/index.phtml">
+                <block type="stuntcoders_menus/menus_grid" name="menus.grid"></block>
+            </block>
+        </reference>
+    </stuntcoders_menus_menus_index>
+
+    <stuntcoders_menus_menus_add>
+        <reference name="head">
+            <action method="addJs"><script>stuntcoders/menus/jquery-1.11.1.min.js</script></action>
+            <action method="addJs"><script>stuntcoders/menus/jquery.nestable.js</script></action>
+            <action method="addJs"><script>stuntcoders/menus/noconflict.js</script></action>
+            <action method="addJs"><script>stuntcoders/menus/menus.js</script></action>
+            <action method="addCss"><stylesheet>stuntcoders_menus.css</stylesheet></action>
+        </reference>
+        <reference name="content">
+            <block type="stuntcoders_menus/menus_add" name="menus.add" template="stuntcoders/menus/add.phtml">
+                <block type="stuntcoders_menus/menus_add_form" name="menus.add.form"></block>
+                <block type="core/template" name="menus.add.menu.link" template="stuntcoders/menus/add/link.phtml"></block>
+                <block type="core/template" name="menus.add.menu.category" template="stuntcoders/menus/add/category.phtml"></block>
+                <block type="core/template" name="menus.add.menu.cms" template="stuntcoders/menus/add/cms.phtml"></block>
+                <block type="core/template" name="menus.add.menu.items" template="stuntcoders/menus/add/items.phtml"></block>
+                <block type="core/template" name="menus.add.menu.templates" template="stuntcoders/menus/add/templates.phtml"></block>
+            </block>
+        </reference>
+    </stuntcoders_menus_menus_add>
+</layout>

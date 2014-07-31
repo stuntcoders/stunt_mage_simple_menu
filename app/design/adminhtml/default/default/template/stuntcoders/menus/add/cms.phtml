@@ -1,0 +1,15 @@
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4 class="icon-head head-edit-form fieldset-legend"><?php echo Mage::helper('stuntcoders_menus')->__('Add Cms page'); ?></h4>
+    </div>
+    <div class="fieldset fieldset-wide">
+        <div class="hor-scroll">
+            <div id="label-cms" class="checkbox-list">
+                <?php foreach(Mage::getModel('cms/page')->getCollection()->toOptionArray() as $dmsPageId => $cmsPage): ?>
+                    <label><input type="checkbox" name="checkbox" value="<?php echo $dmsPageId?>"> <?php echo $cmsPage['label']?></label><br/>
+                <?php endforeach; ?>
+            </div>
+            <button id="add-cms"><?php echo Mage::helper('stuntcoders_menus')->__('Add') ?></button>
+        </div>
+    </div>
+</div>

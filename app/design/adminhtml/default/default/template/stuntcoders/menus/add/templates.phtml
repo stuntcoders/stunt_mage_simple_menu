@@ -1,0 +1,32 @@
+
+<div id="menu-item-template-link" style="display:none">
+    <li class="dd-item" data-type="1" data-url="{url}" data-label="{label}">
+            <div class="dd-handle">
+                {label}
+            </div>
+            <div class="dd-fields">
+                <div>Label: <input type="text" value = "" class="dd-field-label"></div>
+                <div>Url: <input type="text" value = "" class="dd-field-url"></div>
+            </div>
+            <span class="dd-options">
+                <a href="#" class="dd-edit"><?php echo Mage::helper('stuntcoders_menus')->__('Edit') ?></a>
+                <a href="#" class="dd-delete"><?php echo Mage::helper('stuntcoders_menus')->__('Delete') ?></a>
+            </span>
+    </li>
+</div>
+
+<div id="menu-item-template-cat-or-cms" style="display:none">
+    <li class="dd-item" data-type="{type}" data-id="{id}" data-label="{label}">
+            <div class="dd-handle">
+                {label}
+            </div>
+            <div class="dd-fields">
+                <div>Label: <input type="text" value = "" class="dd-field-label"></div>
+                <div>Type: {item_type} (ID: {id})</div>
+            </div>
+            <span class="dd-options">
+                <a href="#" class="dd-edit"><?php echo Mage::helper('stuntcoders_menus')->__('Edit') ?></a>
+                <a href="#" class="dd-delete"><?php echo Mage::helper('stuntcoders_menus')->__('Delete') ?></a>
+            </span>
+    </li>
+</div>

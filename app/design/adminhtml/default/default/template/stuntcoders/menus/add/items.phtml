@@ -1,0 +1,53 @@
+<?php
+if (Mage::registry('menu_data')) {
+    $data = Mage::registry('menu_data')->getData();
+    $menu = json_decode($data['value'], true);
+} else {
+    $menu = array();
+}
+?>
+<?php
+function echoMenuItems(array $menu)
+{
+    foreach ($menu as $menuItem) {
+?>
+        <li class="dd-item" data-type="<?php echo $menuItem['type']?>"
+            data-label="<?php echo $menuItem['label']?>"
+            <?php echo (int) $menuItem['type'] === 1 ? 'data-url="' . $menuItem['url'] . '"' : 'data-id="' . $menuItem['id'] . '"'; ?>>
+            <div class="dd-handle">
+                <?php echo $menuItem['label']?>
+            </div>
+            <div class="dd-fields">
+                <div>Label: <input type="text" value = "" class="dd-field-label"></div>
+                <?php if((int) $menuItem['type'] !== 1): ?>
+                    <div>Type: <?php echo (int) $menuItem['type'] === 2 ? "Category" : "Cms Page" ?> (ID: <?php echo $menuItem['id']?>)</div>
+                <?php endif; ?>
+            </div>
+            <span class="dd-options">
+                <a href="#" class="dd-edit"><?php echo Mage::helper('stuntcoders_menus')->__('Edit') ?></a>
+                <a href="#" class="dd-delete"><?php echo Mage::helper('stuntcoders_menus')->__('Delete') ?></a>
+            </span>
+            <?php if(isset($menuItem['children'])): ?>
+                <ol class="dd-list">
+                    <?php echoMenuItems($menuItem['children']); ?>
+                </ol>
+            <?php endif; ?>
+        </li>
+<?php
+    }
+}
+?>
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4 class="icon-head head-edit-form fieldset-legend"><?php echo Mage::helper('stuntcoders_menus')->__('Menu Items'); ?></h4>
+    </div>
+    <div class="fieldset fieldset-wide">
+        <div class="hor-scroll">
+            <div class="dd">
+                <ol class="dd-list">
+                    <?php echoMenuItems($menu); ?>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
