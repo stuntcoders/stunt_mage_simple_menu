@@ -5,6 +5,7 @@ class Stuntcoders_Menus_Model_Menus extends Mage_Core_Model_Abstract
     const MENU_ITEM_TYPE_LINK           = 1;
     const MENU_ITEM_TYPE_CATEGORY       = 2;
     const MENU_ITEM_TYPE_CMS_PAGE       = 3;
+    const MENU_ITEM_TYPE_SPECIAL        = 4;
 
     protected function _construct()
     {
@@ -18,13 +19,16 @@ class Stuntcoders_Menus_Model_Menus extends Mage_Core_Model_Abstract
         }
 
         switch ((int)$menuItem["type"]) {
-            case Stuntcoders_Menus_Model_Menus::MENU_ITEM_TYPE_LINK:
+            case self::MENU_ITEM_TYPE_LINK:
                 break;
-            case Stuntcoders_Menus_Model_Menus::MENU_ITEM_TYPE_CATEGORY:
+            case self::MENU_ITEM_TYPE_CATEGORY:
                 $menuItem['url'] = Mage::getModel("catalog/category")->load($menuItem['id'])->getUrl();
                 break;
-            case Stuntcoders_Menus_Model_Menus::MENU_ITEM_TYPE_CMS_PAGE:
+            case self::MENU_ITEM_TYPE_CMS_PAGE:
                 $menuItem['url'] = Mage::helper('cms/page')->getPageUrl($menuItem['id']);
+                break;
+            case self::MENU_ITEM_TYPE_SPECIAL:
+                $menuItem['url'] = Stuntcoders_Menus_Model_Menus_Special::getUrl($menuItem);
                 break;
             default:
                 unset($menuItem);
