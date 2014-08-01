@@ -22,6 +22,7 @@
                 <block type="core/template" name="menus.add.menu.link" template="stuntcoders/menus/add/link.phtml"></block>
                 <block type="core/template" name="menus.add.menu.category" template="stuntcoders/menus/add/category.phtml"></block>
                 <block type="core/template" name="menus.add.menu.cms" template="stuntcoders/menus/add/cms.phtml"></block>
+                <block type="core/template" name="menus.add.menu.special" template="stuntcoders/menus/add/special.phtml"></block>
                 <block type="core/template" name="menus.add.menu.items" template="stuntcoders/menus/add/items.phtml"></block>
                 <block type="core/template" name="menus.add.menu.templates" template="stuntcoders/menus/add/templates.phtml"></block>
             </block>
