@@ -93,6 +93,7 @@ jQuery(document).ready(function($) {
             menuItem.find(".dd-handle").first().html(menuItem.data("label"));
             $(this).html(Translator.translate('Edit'));
         }
+        updateMenuValue();
         e.preventDefault();
     });
 
