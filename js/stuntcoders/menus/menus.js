@@ -36,7 +36,7 @@ jQuery(document).ready(function($) {
 
     $('#add-category').click(function() {
         $('#label-category input:checkbox:checked').each(function () {
-            $('.dd > .dd-list').append(getCategoryMenuItem($(this).closest("label").text(), $(this).val(), 0));
+            $('.dd > .dd-list').append(getCategoryMenuItem($(this).closest("label").text(), $(this).val(), false));
             // uncheck cbox after adding to list
             $(this).prop('checked', false);
         });
@@ -78,16 +78,24 @@ jQuery(document).ready(function($) {
             // Set edit fields values to match items data values
             menuItem.find('.dd-field-label').first().val(menuItem.data("label"));
 
-            if (menuItem.data("url")) {
+            if (menuItem.attr("data-url")) {
                 menuItem.find('.dd-field-url').first().val(menuItem.data("url"));
+            }
+
+            if (menuItem.attr('data-subcategories')) {
+                menuItem.find('.dd-field-subcategories').first().prop('checked', menuItem.data("subcategories"));
             }
 
             $(this).html(Translator.translate('Save'));
         } else {
             // Set items data values to match edit fields values
             menuItem.data("label", menuItem.find('.dd-field-label').first().val());
-            if (menuItem.data("url")) {
+            if (menuItem.attr("data-url")) {
                 menuItem.data("url", menuItem.find('.dd-field-url').first().val());
+            }
+
+            if (menuItem.attr('data-subcategories')) {
+                menuItem.data("subcategories", menuItem.find('.dd-field-subcategories').first().is(':checked'));
             }
             // Update items text to match items label data
             menuItem.find(".dd-handle").first().html(menuItem.data("label"));
