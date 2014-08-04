@@ -1,7 +1,7 @@
 <?php
 if (Mage::registry('menu_data')) {
-    $data = Mage::registry('menu_data')->getData();
-    $menu = json_decode($data['value'], true);
+    $menu = Mage::registry('menu_data')->getData();
+    $menu = json_decode($menu['value'], true);
 } else {
     $menu = array();
 }
