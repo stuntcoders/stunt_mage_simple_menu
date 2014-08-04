@@ -40,4 +40,41 @@ class Stuntcoders_Menus_Helper_Data extends Mage_Core_Helper_Abstract
             }
         }
     }
+
+    public function getMenuItemDataUrl($menuItem)
+    {
+        if ((int)$menuItem['type'] !== Stuntcoders_Menus_Model_Menus::MENU_ITEM_TYPE_LINK) {
+           return "";
+        }
+
+        return 'data-url="'. $menuItem['url'] . '"';
+    }
+
+    public function getMenuItemDataId($menuItem)
+    {
+        if ((int)$menuItem['type'] !== Stuntcoders_Menus_Model_Menus::MENU_ITEM_TYPE_CATEGORY ||
+            (int)$menuItem['type'] !== Stuntcoders_Menus_Model_Menus::MENU_ITEM_TYPE_CMS_PAGE) {
+            return "";
+        }
+
+        return 'data-id="'. $menuItem['id'] . '"';
+    }
+
+    public function getMenuItemDataTypeName($menuItem)
+    {
+        if ((int)$menuItem['type'] !== Stuntcoders_Menus_Model_Menus::MENU_ITEM_TYPE_SPECIAL) {
+            return "";
+        }
+
+        return 'data-typename="'. $menuItem['typename'] . '"';
+    }
+
+    public function getMenuItemDataSubcategories($menuItem)
+    {
+        if ((int)$menuItem['type'] !== Stuntcoders_Menus_Model_Menus::MENU_ITEM_TYPE_CATEGORY) {
+            return "";
+        }
+
+        return 'data-subcategories="'. $menuItem['subcategories'] . '"';
+    }
 }

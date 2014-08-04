@@ -10,22 +10,35 @@ if (Mage::registry('menu_data')) {
 function echoMenuItems(array $menu)
 {
     foreach ($menu as $menuItem) {
+        switch((int) $menuItem['type'])
+        {
+            case Stuntcoders_Menus_Model_Menus::MENU_ITEM_TYPE_CATEGORY: $itemTypeName = Mage::helper('stuntcoders_menus')->__('Category') . " (ID: {$menuItem['id']})"; break;
+            case Stuntcoders_Menus_Model_Menus::MENU_ITEM_TYPE_CMS_PAGE: $itemTypeName = Mage::helper('stuntcoders_menus')->__('Cms page') . " (ID: {$menuItem['id']})"; break;
+            case Stuntcoders_Menus_Model_Menus::MENU_ITEM_TYPE_SPECIAL: $itemTypeName = Mage::helper('stuntcoders_menus')->__('%s page', $menuItem['typename']); break;
+            default: break;
+        }
 ?>
         <li class="dd-item" data-type="<?php echo $menuItem['type']?>"
             data-label="<?php echo $menuItem['label']?>"
-            <?php echo (int) $menuItem['type'] === 1 ? 'data-url="' . $menuItem['url'] . '"' : 'data-id="' . $menuItem['id'] . '"'; ?>>
+            <?php echo Mage::helper('stuntcoders_menus')->getMenuItemDataUrl($menuItem); ?>
+            <?php echo Mage::helper('stuntcoders_menus')->getMenuItemDataTypeName($menuItem); ?>
+            <?php echo Mage::helper('stuntcoders_menus')->getMenuItemDataSubcategories($menuItem); ?>
+            <?php echo Mage::helper('stuntcoders_menus')->getMenuItemDataId($menuItem); ?>>
             <div class="dd-handle">
                 <?php echo $menuItem['label']?>
             </div>
             <div class="dd-fields">
                 <div>Label: <input type="text" value = "" class="dd-field-label"></div>
+                <?php if((int) $menuItem['type'] === 2): ?>
+                    <div><input type="checkbox" value="subcategories" class="dd-field-subcategories" <?php echo (int) $menuItem['subcategories'] === 1? 'checked="checked"' : ""; ?>> Include children categories</div>
+                <?php endif; ?>
                 <?php if((int) $menuItem['type'] !== 1): ?>
-                    <div>Type: <?php echo (int) $menuItem['type'] === 2 ? "Category" : "Cms Page" ?> (ID: <?php echo $menuItem['id']?>)</div>
+                    <div><?php echo Mage::helper('stuntcoders_menus')->__('Type: ') . $itemTypeName?></div>
                 <?php endif; ?>
             </div>
             <span class="dd-options">
-                <a href="#" class="dd-edit"><?php echo Mage::helper('stuntcoders_menus')->__('Edit') ?></a>
-                <a href="#" class="dd-delete"><?php echo Mage::helper('stuntcoders_menus')->__('Delete') ?></a>
+                <a href="#" class="dd-edit"><?php echo Mage::helper('stuntcoders_menus')->__('Edit'); ?></a>
+                <a href="#" class="dd-delete"><?php echo Mage::helper('stuntcoders_menus')->__('Delete'); ?></a>
             </span>
             <?php if(isset($menuItem['children'])): ?>
                 <ol class="dd-list">

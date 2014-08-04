@@ -36,7 +36,7 @@ jQuery(document).ready(function($) {
 
     $('#add-category').click(function() {
         $('#label-category input:checkbox:checked').each(function () {
-            $('.dd > .dd-list').append(getCategoryOrCmsMenuItem($(this).closest("label").text(), $(this).val(), 2));
+            $('.dd > .dd-list').append(getCategoryMenuItem($(this).closest("label").text(), $(this).val(), 0));
             // uncheck cbox after adding to list
             $(this).prop('checked', false);
         });
@@ -46,7 +46,7 @@ jQuery(document).ready(function($) {
 
     $('#add-cms').click(function() {
         $('#label-cms input:checkbox:checked').each(function () {
-            $('.dd > .dd-list').append(getCategoryOrCmsMenuItem($(this).closest("label").text(), $(this).val(), 3));
+            $('.dd > .dd-list').append(getCmsMenuItem($(this).closest("label").text(), $(this).val()));
             // uncheck cbox after adding to list
             $(this).prop('checked', false);
         });
@@ -56,7 +56,7 @@ jQuery(document).ready(function($) {
 
     $('#add-special').click(function() {
         $('#label-special input:checkbox:checked').each(function () {
-            $('.dd > .dd-list').append(getSpecialItem($(this).closest("label").text(), $(this).val()));
+            $('.dd > .dd-list').append(getSpecialMenuItem($(this).closest("label").text(), $(this).val()));
             // uncheck cbox after adding to list
             $(this).prop('checked', false);
         });
@@ -114,22 +114,27 @@ jQuery(document).ready(function($) {
         return template;
     }
 
-    function getCategoryOrCmsMenuItem(label, id, type) {
-        var template = $("#menu-item-template-cat-or-cms").html();
+    function getCmsMenuItem(label, id) {
+        var template = $("#menu-item-template-cms").html();
         template = template.replace(new RegExp('{id}', 'g'), id);
         template = template.replace(new RegExp('{label}', 'g'), label);
-        template = template.replace(new RegExp('{type}', 'g'), type);
-        template = template.replace(new RegExp('{item_type}', 'g'), Translator.translate(type === 2? "Category" : "Cms page"));
 
         return template;
     }
 
-    function getSpecialItem(label, id) {
+    function getCategoryMenuItem(label, id, subcategories) {
+        var template = $("#menu-item-template-category").html();
+        template = template.replace(new RegExp('{id}', 'g'), id);
+        template = template.replace(new RegExp('{label}', 'g'), label);
+        template = template.replace(new RegExp('{subcategories}', 'g'), subcategories);
+
+        return template;
+    }
+
+    function getSpecialMenuItem(label, id) {
         var template = $("#menu-item-template-special").html();
         template = template.replace(new RegExp('{id}', 'g'), id);
         template = template.replace(new RegExp('{label}', 'g'), label);
-        template = template.replace(new RegExp('{type}', 'g'), 4);
-        template = template.replace(new RegExp('{item_type}', 'g'), label);
 
         return template;
     }
