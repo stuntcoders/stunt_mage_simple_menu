@@ -52,7 +52,7 @@ class Stuntcoders_Menus_Helper_Data extends Mage_Core_Helper_Abstract
 
     public function getMenuItemDataId($menuItem)
     {
-        if ((int)$menuItem['type'] !== Stuntcoders_Menus_Model_Menus::MENU_ITEM_TYPE_CATEGORY ||
+        if ((int)$menuItem['type'] !== Stuntcoders_Menus_Model_Menus::MENU_ITEM_TYPE_CATEGORY &&
             (int)$menuItem['type'] !== Stuntcoders_Menus_Model_Menus::MENU_ITEM_TYPE_CMS_PAGE) {
             return "";
         }
