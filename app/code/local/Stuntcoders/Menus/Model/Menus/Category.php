@@ -16,14 +16,20 @@ class Stuntcoders_Menus_Model_Menus_Category extends Mage_Core_Model_Abstract
             return;
         }
 
+        $level = (int) $category->getLevel() + (int) $menuItem['subcategories'];
+
         // Add subcategories
         $tree = array();
         foreach (explode(",", $category->getAllChildren()) as $childCategory) {
             if ($menuItem['id'] == $childCategory) {
                 continue;
             }
-
             $childCategory = Mage::getModel("catalog/category")->load($childCategory);
+
+            if ($level < (int) $childCategory->getLevel()) {
+               continue;
+            }
+
             if ($childCategory->getParentId() === $menuItem['id']) {
                 $tree[] = self::_getSubcategoryItemMenu($childCategory);
             } else {
@@ -40,7 +46,6 @@ class Stuntcoders_Menus_Model_Menus_Category extends Mage_Core_Model_Abstract
 
     private static function _createCategoriesTree(&$tree, $childCategory)
     {
-
         foreach ($tree as $key => $node) {
             if ($node['id'] == $childCategory->getParentId()) {
                 $tree[$key]["children"][] = self::_getSubcategoryItemMenu($childCategory);
