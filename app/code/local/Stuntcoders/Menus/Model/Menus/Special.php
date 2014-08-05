@@ -8,7 +8,12 @@ class Stuntcoders_Menus_Model_Menus_Special extends Mage_Core_Model_Abstract
     const MENU_ITEM_SPECIAL_CHECKOUT    = 4;
     const MENU_ITEM_SPECIAL_WISHLIST    = 5;
 
-    public static function getUrl($menuItem)
+    public static function formatMenuItem(&$menuItem)
+    {
+        $menuItem['url'] = self::_getUrl($menuItem['id']);
+    }
+
+    private static function _getUrl($menuItem)
     {
         switch ($menuItem['id']) {
             case self::MENU_ITEM_SPECIAL_LOGIN: return Mage::helper('customer')->getLoginUrl(); break;

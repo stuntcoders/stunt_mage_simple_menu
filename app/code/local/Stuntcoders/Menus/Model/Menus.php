@@ -15,17 +15,21 @@ class Stuntcoders_Menus_Model_Menus extends Mage_Core_Model_Abstract
     public static function formatMenuItem(&$menuItem)
     {
         if (!is_array($menuItem) || empty($menuItem)) {
-            return null;
+            return;
+        }
+
+        if (!isset($menuItem["type"])) {
+            return;
         }
 
         switch ((int)$menuItem["type"]) {
             case self::MENU_ITEM_TYPE_LINK:
                 break;
             case self::MENU_ITEM_TYPE_CATEGORY:
-                $menuItem['url'] = Mage::getModel("catalog/category")->load($menuItem['id'])->getUrl();
+                Stuntcoders_Menus_Model_Menus_Category::formatMenuItem($menuItem);
                 break;
             case self::MENU_ITEM_TYPE_CMS_PAGE:
-                $menuItem['url'] = Mage::helper('cms/page')->getPageUrl($menuItem['id']);
+                Stuntcoders_Menus_Model_Menus_Special::formatMenuItem($menuItem);
                 break;
             case self::MENU_ITEM_TYPE_SPECIAL:
                 $menuItem['url'] = Stuntcoders_Menus_Model_Menus_Special::getUrl($menuItem);
@@ -35,7 +39,9 @@ class Stuntcoders_Menus_Model_Menus extends Mage_Core_Model_Abstract
                 break;
         }
 
-        unset($menuItem['id']);
-        unset($menuItem['type']);
+//        unset($menuItem['typename']);
+//        unset($menuItem['subcategories']);
+//        unset($menuItem['id']);
+//        unset($menuItem['type']);
     }
 }
