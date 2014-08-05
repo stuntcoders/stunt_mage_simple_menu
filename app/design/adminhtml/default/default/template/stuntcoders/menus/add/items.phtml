@@ -17,7 +17,6 @@ function echoMenuItems(array $menu)
             case Stuntcoders_Menus_Model_Menus::MENU_ITEM_TYPE_SPECIAL: $itemTypeName = Mage::helper('stuntcoders_menus')->__('%s page', $menuItem['typename']); break;
             default: break;
         }
-        Zend_Debug::dump($menuItem);
 ?>
         <li class="dd-item" data-type="<?php echo $menuItem['type']?>"
             data-label="<?php echo $menuItem['label']?>"
@@ -31,7 +30,7 @@ function echoMenuItems(array $menu)
             <div class="dd-fields">
                 <div>Label: <input type="text" value = "" class="dd-field-label"></div>
                 <?php if((int) $menuItem['type'] === 2): ?>
-                    <div><input type="checkbox" value="subcategories" class="dd-field-subcategories" <?php echo $menuItem['subcategories'] ? 'checked="checked"' : ""; ?>> Include children categories</div>
+                    <div>Depth of subcategories to load: <input type="text" value = "" class="dd-field-subcategories"></div>
                 <?php endif; ?>
                 <?php if((int) $menuItem['type'] !== 1): ?>
                     <div><?php echo Mage::helper('stuntcoders_menus')->__('Type: ') . $itemTypeName?></div>

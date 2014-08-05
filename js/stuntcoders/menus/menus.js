@@ -36,7 +36,7 @@ jQuery(document).ready(function($) {
 
     $('#add-category').click(function() {
         $('#label-category input:checkbox:checked').each(function () {
-            $('.dd > .dd-list').append(getCategoryMenuItem($(this).closest("label").text(), $(this).val(), false));
+            $('.dd > .dd-list').append(getCategoryMenuItem($(this).closest("label").text(), $(this).val(), "0"));
             // uncheck cbox after adding to list
             $(this).prop('checked', false);
         });
@@ -83,7 +83,7 @@ jQuery(document).ready(function($) {
             }
 
             if (menuItem.attr('data-subcategories')) {
-                menuItem.find('.dd-field-subcategories').first().prop('checked', menuItem.data("subcategories"));
+                menuItem.find('.dd-field-subcategories').first().val(menuItem.data("subcategories"));
             }
 
             $(this).html(Translator.translate('Save'));
@@ -95,7 +95,7 @@ jQuery(document).ready(function($) {
             }
 
             if (menuItem.attr('data-subcategories')) {
-                menuItem.data("subcategories", menuItem.find('.dd-field-subcategories').first().is(':checked'));
+                menuItem.data("subcategories", menuItem.find('.dd-field-subcategories').first().val());
             }
             // Update items text to match items label data
             menuItem.find(".dd-handle").first().html(menuItem.data("label"));
