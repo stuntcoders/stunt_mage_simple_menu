@@ -1,45 +1,10 @@
-
-<div id="menu-item-template-link" style="display:none">
-    <li class="dd-item" data-type="1" data-url="{url}" data-label="{label}">
-            <div class="dd-handle">
-                {label}
-            </div>
-            <div class="dd-fields">
-                <div>Label: <input type="text" value = "" class="dd-field-label"></div>
-                <div>Url: <input type="text" value = "" class="dd-field-url"></div>
-            </div>
-            <span class="dd-options">
-                <a href="#" class="dd-edit"><?php echo Mage::helper('stuntcoders_menus')->__('Edit') ?></a>
-                <a href="#" class="dd-delete"><?php echo Mage::helper('stuntcoders_menus')->__('Delete') ?></a>
-            </span>
-    </li>
-</div>
-
-<div id="menu-item-template-cms" style="display:none">
-    <li class="dd-item" data-type="3" data-id="{id}" data-label="{label}">
-            <div class="dd-handle">
-                {label}
-            </div>
-            <div class="dd-fields">
-                <div>Label: <input type="text" value = "" class="dd-field-label"></div>
-                <div><?php echo Mage::helper('stuntcoders_menus')->__('Cms page') ?> (ID: {id})</div>
-            </div>
-            <span class="dd-options">
-                <a href="#" class="dd-edit"><?php echo Mage::helper('stuntcoders_menus')->__('Edit') ?></a>
-                <a href="#" class="dd-delete"><?php echo Mage::helper('stuntcoders_menus')->__('Delete') ?></a>
-            </span>
-    </li>
-</div>
-
-<div id="menu-item-template-category" style="display:none">
-    <li class="dd-item" data-type="2" data-id="{id}" data-label="{label}" data-subcategories="{subcategories}">
+<div id="menu-item-template" style="display:none">
+    <li class="dd-item">
         <div class="dd-handle">
             {label}
         </div>
         <div class="dd-fields">
-            <div>Label: <input type="text" value = "" class="dd-field-label"></div>
-            <div>Depth of subcategories to load: <input type="text" value = "" class="dd-field-subcategories"></div>
-            <div><?php echo Mage::helper('stuntcoders_menus')->__('Category') ?> (ID: {id})</div>
+            {fields}
         </div>
             <span class="dd-options">
                 <a href="#" class="dd-edit"><?php echo Mage::helper('stuntcoders_menus')->__('Edit') ?></a>
@@ -48,18 +13,23 @@
     </li>
 </div>
 
-<div id="menu-item-template-special" style="display:none">
-    <li class="dd-item" data-type="4" data-id="{id}" data-label="{label}" data-typename="{label}">
-        <div class="dd-handle">
-            {label}
-        </div>
-        <div class="dd-fields">
-            <div>Label: <input type="text" value = "" class="dd-field-label"></div>
-            <div>Type: {label} <?php echo Mage::helper('stuntcoders_menus')->__('page') ?></div>
-        </div>
-            <span class="dd-options">
-                <a href="#" class="dd-edit"><?php echo Mage::helper('stuntcoders_menus')->__('Edit') ?></a>
-                <a href="#" class="dd-delete"><?php echo Mage::helper('stuntcoders_menus')->__('Delete') ?></a>
-            </span>
-    </li>
+<div id="menu-item-template-fields-link" style="display:none">
+    <div>Label: <input type="text" value = "" class="dd-field-label"></div>
+    <div>Url: <input type="text" value = "" class="dd-field-url"></div>
+</div>
+
+<div id="menu-item-template-fields-category" style="display:none">
+    <div>Label: <input type="text" value = "" class="dd-field-label"></div>
+    <div>Depth of subcategories to load: <input type="text" value = "" class="dd-field-subcategories"></div>
+    <div><?php echo Mage::helper('stuntcoders_menus')->__('Category') ?> (ID: <label class="dd-field-id"></label>)</div>
+</div>
+
+<div id="menu-item-template-fields-cms" style="display:none">
+    <div>Label: <input type="text" value = "" class="dd-field-label"></div>
+    <div><?php echo Mage::helper('stuntcoders_menus')->__('Category') ?> (ID: <label class="dd-field-id"></label>)</div>
+</div>
+
+<div id="menu-item-template-fields-special" style="display:none">
+    <div>Label: <input type="text" value = "" class="dd-field-label"></div>
+    <div>Type:  <label class="dd-field-typename"></label> <?php echo Mage::helper('stuntcoders_menus')->__('page') ?></div>
 </div>

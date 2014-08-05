@@ -19,7 +19,7 @@ function echoMenuItems(array $menu)
         }
 ?>
         <li class="dd-item" data-type="<?php echo $menuItem['type']?>"
-            data-label="<?php echo $menuItem['label']?>"
+                 data-label="<?php echo $menuItem['label']?>"
             <?php echo Mage::helper('stuntcoders_menus')->getMenuItemDataUrl($menuItem); ?>
             <?php echo Mage::helper('stuntcoders_menus')->getMenuItemDataTypeName($menuItem); ?>
             <?php echo Mage::helper('stuntcoders_menus')->getMenuItemDataSubcategories($menuItem); ?>
@@ -31,6 +31,9 @@ function echoMenuItems(array $menu)
                 <div>Label: <input type="text" value = "" class="dd-field-label"></div>
                 <?php if((int) $menuItem['type'] === 2): ?>
                     <div>Depth of subcategories to load: <input type="text" value = "" class="dd-field-subcategories"></div>
+                <?php endif; ?>
+                <?php if((int) $menuItem['type'] === 1): ?>
+                    <div>Url: <input type="text" value = "" class="dd-field-url"></div>
                 <?php endif; ?>
                 <?php if((int) $menuItem['type'] !== 1): ?>
                     <div><?php echo Mage::helper('stuntcoders_menus')->__('Type: ') . $itemTypeName?></div>

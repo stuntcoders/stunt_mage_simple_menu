@@ -25,7 +25,15 @@ jQuery(document).ready(function($) {
         }
 
         if (label !== '' && url !== '') {
-            $('.dd > .dd-list').append(getLinkMenuItem(label, url));
+            var data = {
+                type: 1,
+                label: label,
+                url: url
+            };
+
+            var el = $(getLinkMenuItem(data.label));
+            addElement(el, data);
+
             $('.dd').nestable(options);
             updateMenuValue();
 
@@ -36,9 +44,16 @@ jQuery(document).ready(function($) {
 
     $('#add-category').click(function() {
         $('#label-category input:checkbox:checked').each(function () {
-            $('.dd > .dd-list').append(getCategoryMenuItem($(this).closest("label").text(), $(this).val(), "0"));
-            // uncheck cbox after adding to list
+            var data = {
+                type: 2,
+                label: $(this).closest("label").text(),
+                subcategories: "0",
+                id: $(this).val()
+            };
+            var el = $(getCategoryMenuItem(data.label));
             $(this).prop('checked', false);
+
+            addElement(el, data);
         });
         $('.dd').nestable(options);
         updateMenuValue();
@@ -46,9 +61,16 @@ jQuery(document).ready(function($) {
 
     $('#add-cms').click(function() {
         $('#label-cms input:checkbox:checked').each(function () {
-            $('.dd > .dd-list').append(getCmsMenuItem($(this).closest("label").text(), $(this).val()));
-            // uncheck cbox after adding to list
+            var data = {
+                type: 3,
+                label: $(this).closest("label").text(),
+                id: $(this).val()
+            };
+
+            var el = $(getCmsMenuItem(data.label));
             $(this).prop('checked', false);
+
+            addElement(el, data);
         });
         $('.dd').nestable(options);
         updateMenuValue();
@@ -56,9 +78,17 @@ jQuery(document).ready(function($) {
 
     $('#add-special').click(function() {
         $('#label-special input:checkbox:checked').each(function () {
-            $('.dd > .dd-list').append(getSpecialMenuItem($(this).closest("label").text(), $(this).val()));
-            // uncheck cbox after adding to list
+            var data = {
+                type: 4,
+                label: $(this).closest("label").text(),
+                typename: $(this).closest("label").text(),
+                id: $(this).val()
+            };
+
+            var el = $(getSpecialMenuItem(data.label));
             $(this).prop('checked', false);
+
+            addElement(el, data);
         });
         $('.dd').nestable(options);
         updateMenuValue();
@@ -77,26 +107,18 @@ jQuery(document).ready(function($) {
         if(hidden) {
             // Set edit fields values to match items data values
             menuItem.find('.dd-field-label').first().val(menuItem.data("label"));
+            menuItem.find('.dd-field-url').first().val(menuItem.data("url"));
+            menuItem.find('.dd-field-subcategories').first().val(menuItem.data("subcategories"));
 
-            if (menuItem.attr("data-url")) {
-                menuItem.find('.dd-field-url').first().val(menuItem.data("url"));
-            }
-
-            if (menuItem.attr('data-subcategories')) {
-                menuItem.find('.dd-field-subcategories').first().val(menuItem.data("subcategories"));
-            }
-
+            menuItem.find('.dd-field-id').first().html(menuItem.data("id"));
+            menuItem.find('.dd-field-typename').first().html(menuItem.data("typename"));
             $(this).html(Translator.translate('Save'));
         } else {
             // Set items data values to match edit fields values
             menuItem.data("label", menuItem.find('.dd-field-label').first().val());
-            if (menuItem.attr("data-url")) {
-                menuItem.data("url", menuItem.find('.dd-field-url').first().val());
-            }
+            menuItem.data("url", menuItem.find('.dd-field-url').first().val());
+            menuItem.data("subcategories", menuItem.find('.dd-field-subcategories').first().val());
 
-            if (menuItem.attr('data-subcategories')) {
-                menuItem.data("subcategories", menuItem.find('.dd-field-subcategories').first().val());
-            }
             // Update items text to match items label data
             menuItem.find(".dd-handle").first().html(menuItem.data("label"));
             $(this).html(Translator.translate('Edit'));
@@ -114,35 +136,34 @@ jQuery(document).ready(function($) {
         $('#menu-value').val(value);
     }
 
-    function getLinkMenuItem(label, url) {
-        var template = $("#menu-item-template-link").html();
-        template = template.replace(new RegExp('{url}', 'g'), url);
-        template = template.replace(new RegExp('{label}', 'g'), label);
-
-        return template;
+    function addElement(element, data)
+    {
+        $('.dd > .dd-list').append(element);
+        element.data(data);
     }
 
     function getCmsMenuItem(label, id) {
-        var template = $("#menu-item-template-cms").html();
-        template = template.replace(new RegExp('{id}', 'g'), id);
-        template = template.replace(new RegExp('{label}', 'g'), label);
-
-        return template;
-    }
-
-    function getCategoryMenuItem(label, id, subcategories) {
-        var template = $("#menu-item-template-category").html();
-        template = template.replace(new RegExp('{id}', 'g'), id);
-        template = template.replace(new RegExp('{label}', 'g'), label);
-        template = template.replace(new RegExp('{subcategories}', 'g'), subcategories);
-
-        return template;
+        return getTemplate(label, "#menu-item-template-fields-cms");
     }
 
     function getSpecialMenuItem(label, id) {
-        var template = $("#menu-item-template-special").html();
-        template = template.replace(new RegExp('{id}', 'g'), id);
+        return getTemplate(label, "#menu-item-template-fields-special");
+    }
+
+    function getLinkMenuItem(label) {
+        return getTemplate(label, "#menu-item-template-fields-link");
+    }
+
+    function getCategoryMenuItem(label) {
+        return getTemplate(label, "#menu-item-template-fields-category");
+    }
+
+    function getTemplate(label, fieldsId)
+    {
+        var template = $("#menu-item-template").html();
+        var fields = $(fieldsId).html();
         template = template.replace(new RegExp('{label}', 'g'), label);
+        template = template.replace(new RegExp('{fields}', 'g'), fields);
 
         return template;
     }
