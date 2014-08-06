@@ -39,9 +39,9 @@ class Stuntcoders_Menus_Model_Menus extends Mage_Core_Model_Abstract
                 break;
         }
 
-//        unset($menuItem['typename']);
-//        unset($menuItem['subcategories']);
-//        unset($menuItem['id']);
-//        unset($menuItem['type']);
+        unset($menuItem['typename']);
+        unset($menuItem['subcategories']);
+        unset($menuItem['id']);
+        unset($menuItem['type']);
     }
 }

@@ -12,10 +12,17 @@ function echoMenuItems(array $menu)
     foreach ($menu as $menuItem) {
         switch((int) $menuItem['type'])
         {
-            case Stuntcoders_Menus_Model_Menus::MENU_ITEM_TYPE_CATEGORY: $itemTypeName = Mage::helper('stuntcoders_menus')->__('Category') . " (ID: {$menuItem['id']})"; break;
-            case Stuntcoders_Menus_Model_Menus::MENU_ITEM_TYPE_CMS_PAGE: $itemTypeName = Mage::helper('stuntcoders_menus')->__('Cms page') . " (ID: {$menuItem['id']})"; break;
-            case Stuntcoders_Menus_Model_Menus::MENU_ITEM_TYPE_SPECIAL: $itemTypeName = Mage::helper('stuntcoders_menus')->__('%s page', $menuItem['typename']); break;
-            default: break;
+            case Stuntcoders_Menus_Model_Menus::MENU_ITEM_TYPE_CATEGORY:
+                $itemTypeName = Mage::helper('stuntcoders_menus')->__('Category') . " (ID: {$menuItem['id']})";
+                break;
+            case Stuntcoders_Menus_Model_Menus::MENU_ITEM_TYPE_CMS_PAGE:
+                $itemTypeName = Mage::helper('stuntcoders_menus')->__('Cms page') . " (ID: {$menuItem['id']})";
+                break;
+            case Stuntcoders_Menus_Model_Menus::MENU_ITEM_TYPE_SPECIAL:
+                $itemTypeName = Mage::helper('stuntcoders_menus')->__('%s page', $menuItem['typename']);
+                break;
+            default:
+                break;
         }
 ?>
         <li class="dd-item" data-type="<?php echo $menuItem['type']?>"
@@ -28,22 +35,33 @@ function echoMenuItems(array $menu)
                 <?php echo $menuItem['label']?>
             </div>
             <div class="dd-fields">
-                <div>Label: <input type="text" value = "" class="dd-field-label"></div>
-                <?php if((int) $menuItem['type'] === 2): ?>
-                    <div>Depth of subcategories to load: <input type="text" value = "" class="dd-field-subcategories"></div>
+                <div>
+                    <?php echo Mage::helper('stuntcoders_menus')->__('Label: '); ?>
+                    <input type="text" value = "" class="dd-field-label">
+                </div>
+                <?php if ((int) $menuItem['type'] === 2): ?>
+                    <div>
+                        <?php echo Mage::helper('stuntcoders_menus')->__('Depth of subcategories to load'); ?>
+                        <input type="text" value = "" class="dd-field-subcategories">
+                    </div>
                 <?php endif; ?>
-                <?php if((int) $menuItem['type'] === 1): ?>
-                    <div>Url: <input type="text" value = "" class="dd-field-url"></div>
+                <?php if ((int) $menuItem['type'] === 1): ?>
+                    <div>
+                        <?php echo Mage::helper('stuntcoders_menus')->__('Url: '); ?>
+                        <input type="text" value = "" class="dd-field-url">
+                    </div>
                 <?php endif; ?>
-                <?php if((int) $menuItem['type'] !== 1): ?>
-                    <div><?php echo Mage::helper('stuntcoders_menus')->__('Type: ') . $itemTypeName?></div>
+                <?php if ((int) $menuItem['type'] !== 1): ?>
+                    <div>
+                        <?php echo Mage::helper('stuntcoders_menus')->__('Type: ') . $itemTypeName?>
+                    </div>
                 <?php endif; ?>
             </div>
             <span class="dd-options">
                 <a href="#" class="dd-edit"><?php echo Mage::helper('stuntcoders_menus')->__('Edit'); ?></a>
                 <a href="#" class="dd-delete"><?php echo Mage::helper('stuntcoders_menus')->__('Delete'); ?></a>
             </span>
-            <?php if(isset($menuItem['children'])): ?>
+            <?php if (isset($menuItem['children'])): ?>
                 <ol class="dd-list">
                     <?php echoMenuItems($menuItem['children']); ?>
                 </ol>
@@ -55,7 +73,9 @@ function echoMenuItems(array $menu)
 ?>
 <div class="entry-edit">
     <div class="entry-edit-head">
-        <h4 class="icon-head head-edit-form fieldset-legend"><?php echo Mage::helper('stuntcoders_menus')->__('Menu Items'); ?></h4>
+        <h4 class="icon-head head-edit-form fieldset-legend">
+            <?php echo Mage::helper('stuntcoders_menus')->__('Menu Items'); ?>
+        </h4>
     </div>
     <div class="fieldset fieldset-wide">
         <div class="hor-scroll">

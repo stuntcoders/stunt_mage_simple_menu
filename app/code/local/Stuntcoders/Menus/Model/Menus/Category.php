@@ -27,7 +27,7 @@ class Stuntcoders_Menus_Model_Menus_Category extends Mage_Core_Model_Abstract
             $childCategory = Mage::getModel("catalog/category")->load($childCategory);
 
             if ($level < (int) $childCategory->getLevel()) {
-               continue;
+                continue;
             }
 
             if ($childCategory->getParentId() === $menuItem['id']) {
