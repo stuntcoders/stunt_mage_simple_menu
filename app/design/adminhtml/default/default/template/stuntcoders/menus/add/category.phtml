@@ -6,7 +6,10 @@
         <div class="hor-scroll">
             <div id="label-category" class="checkbox-list">
                 <?php foreach(Mage::helper('stuntcoders_menus')->getCategoriesArray() as $categoryId => $categoryData): ?>
-                    <label class="level-<?php echo $categoryData['level']?>"><input type="checkbox" name="checkbox" value="<?php echo $categoryId?>"><?php echo $categoryData['name']?></label><br/>
+                    <label class="level-<?php echo $categoryData['level']?>">
+                        <input type="checkbox" name="checkbox" value="<?php echo $categoryId?>">
+                        <?php echo isset($categoryData['name']) ? $categoryData['name'] : ""; ?>
+                    </label><br/>
                 <?php endforeach; ?>
             </div>
             <button id="add-category"><?php echo Mage::helper('stuntcoders_menus')->__('Add') ?></button>
