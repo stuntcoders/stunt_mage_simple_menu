@@ -1,0 +1,35 @@
+<div class="content-header">
+    <table cellspacing="0">
+        <tr>
+            <td>
+                <h3 class="icon-head head-blog"
+                    ><?php echo Mage::helper('stuntcoders_simplemenu')->__('Simple Menu Manager') ?>
+                </h3>
+            </td>
+            <td class="a-right">
+                <?php
+                    if ($this->getRequest()->getParam('id')) {
+                        echo $this->getChildHtml("simplemenu.delete");
+                    }
+                ?>
+                <?php echo $this->getChildHtml("simplemenu.save"); ?>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="main-container">
+    <div class="main">
+        <div class="col-main">
+            <?php echo $this->getChildHtml("simplemenu.add.form");?>
+            <?php echo $this->getChildHtml("simplemenu.add.menu.items");?>
+        </div>
+        <div class="col-left">
+            <?php echo $this->getChildHtml('simplemenu.add.menu.link');?>
+            <?php echo $this->getChildHtml('simplemenu.add.menu.category');?>
+            <?php echo $this->getChildHtml('simplemenu.add.menu.cms');?>
+            <?php echo $this->getChildHtml('simplemenu.add.menu.special');?>
+        </div>
+    </div>
+</div>
+<?php echo $this->getChildHtml('simplemenu.add.menu.templates');?>
+

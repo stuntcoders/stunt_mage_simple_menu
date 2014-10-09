@@ -1,0 +1,15 @@
+<div class="content-header">
+    <table cellspacing="0">
+        <tr>
+            <td>
+                <h3 class="icon-head head-blog">
+                    <?php echo Mage::helper('stuntcoders_simplemenu')->__('Simple Menu Manager') ?>
+                </h3>
+            </td>
+            <td class="a-right">
+                <?php echo $this->getChildHtml("simplemenu.addnew"); ?>
+            </td>
+        </tr>
+    </table>
+</div>
+<?php echo $this->getChildHtml("simplemenu.grid"); ?>

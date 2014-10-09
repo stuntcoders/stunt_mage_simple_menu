@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <stuntcoders_simplemenu_simplemenu_index>
+        <reference name="content">
+            <block type="stuntcoders_simplemenu/simplemenu" name="simplemenu.index" template="stuntcoders/simplemenu/index.phtml">
+                <block type="stuntcoders_simplemenu/simplemenu_grid" name="simplemenu.grid"></block>
+            </block>
+        </reference>
+    </stuntcoders_simplemenu_simplemenu_index>
+
+    <stuntcoders_simplemenu_simplemenu_add>
+        <reference name="head">
+            <action method="addJs"><script>stuntcoders/simplemenu/jquery-1.11.1.min.js</script></action>
+            <action method="addJs"><script>stuntcoders/simplemenu/jquery.nestable.js</script></action>
+            <action method="addJs"><script>stuntcoders/simplemenu/noconflict.js</script></action>
+            <action method="addJs"><script>stuntcoders/simplemenu/simplemenu.js</script></action>
+            <action method="addCss"><stylesheet>stuntcoders_simplemenu.css</stylesheet></action>
+        </reference>
+        <reference name="content">
+            <block type="stuntcoders_simplemenu/simplemenu_add" name="simplemenu.add" template="stuntcoders/simplemenu/add.phtml">
+                <block type="stuntcoders_simplemenu/simplemenu_add_form" name="simplemenu.add.form"></block>
+                <block type="core/template" name="simplemenu.add.menu.link" template="stuntcoders/simplemenu/add/link.phtml"></block>
+                <block type="core/template" name="simplemenu.add.menu.category" template="stuntcoders/simplemenu/add/category.phtml"></block>
+                <block type="core/template" name="simplemenu.add.menu.cms" template="stuntcoders/simplemenu/add/cms.phtml"></block>
+                <block type="core/template" name="simplemenu.add.menu.special" template="stuntcoders/simplemenu/add/special.phtml"></block>
+                <block type="core/template" name="simplemenu.add.menu.items" template="stuntcoders/simplemenu/add/items.phtml"></block>
+                <block type="core/template" name="simplemenu.add.menu.templates" template="stuntcoders/simplemenu/add/templates.phtml"></block>
+            </block>
+        </reference>
+    </stuntcoders_simplemenu_simplemenu_add>
+</layout>
