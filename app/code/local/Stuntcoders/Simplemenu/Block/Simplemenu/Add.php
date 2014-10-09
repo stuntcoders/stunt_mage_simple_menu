@@ -21,7 +21,7 @@ class Stuntcoders_Simplemenu_Block_Simplemenu_Add extends Mage_Adminhtml_Block_W
         $this->setChild('simplemenu.delete',
             $this->getLayout()->createBlock('adminhtml/widget_button')
                 ->setData(array(
-                    'label'     => Mage::helper('stuntcoders_simplemenu')->__('Delete Menu'),
+                    'label'     => Mage::helper('stuntcoders_simplemenu')->__('Delete Simple Menu'),
                     'onclick'   => "setLocation('".$this->getUrl('*/*/delete',
                             array('id' => $this->getRequest()->getParam('id')))."')",
                     'class'     => 'delete'
