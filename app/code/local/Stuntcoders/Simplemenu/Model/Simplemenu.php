@@ -32,7 +32,7 @@ class Stuntcoders_Simplemenu_Model_Simplemenu extends Mage_Core_Model_Abstract
                 Stuntcoders_Simplemenu_Model_Simplemenu_Special::formatMenuItem($menuItem);
                 break;
             case self::MENU_ITEM_TYPE_SPECIAL:
-                $menuItem['url'] = Stuntcoders_Simplemenu_Model_Simplemenu_Special::getUrl($menuItem);
+                Stuntcoders_Simplemenu_Model_Simplemenu_Special::formatMenuItem($menuItem);
                 break;
             default:
                 unset($menuItem);

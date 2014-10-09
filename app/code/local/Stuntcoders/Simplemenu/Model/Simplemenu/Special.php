@@ -2,11 +2,12 @@
 
 class Stuntcoders_Simplemenu_Model_Simplemenu_Special extends Mage_Core_Model_Abstract
 {
-    const MENU_ITEM_SPECIAL_LOGIN       = 1;
-    const MENU_ITEM_SPECIAL_LOGOUT      = 2;
-    const MENU_ITEM_SPECIAL_CART        = 3;
-    const MENU_ITEM_SPECIAL_CHECKOUT    = 4;
-    const MENU_ITEM_SPECIAL_WISHLIST    = 5;
+    const MENU_ITEM_SPECIAL_LOGIN        = 1;
+    const MENU_ITEM_SPECIAL_LOGOUT       = 2;
+    const MENU_ITEM_SPECIAL_CART         = 3;
+    const MENU_ITEM_SPECIAL_CHECKOUT     = 4;
+    const MENU_ITEM_SPECIAL_WISHLIST     = 5;
+    const MENU_ITEM_SPECIAL_ACCOUNT_PAGE = 6;
 
     public static function formatMenuItem(&$menuItem)
     {
@@ -30,6 +31,9 @@ class Stuntcoders_Simplemenu_Model_Simplemenu_Special extends Mage_Core_Model_Ab
                 break;
             case self::MENU_ITEM_SPECIAL_WISHLIST:
                 return Mage::getUrl('wishlist');
+                break;
+            case self::MENU_ITEM_SPECIAL_ACCOUNT_PAGE:
+                return Mage::getUrl('customer/account');
                 break;
             default:
                 return "";
