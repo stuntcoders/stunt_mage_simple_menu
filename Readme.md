@@ -13,6 +13,6 @@ Menus can contain:
 ## Usage
 
 * Create menu - This can be done from admin panel (CMS -> Simple Menu)
-* Fetch menu on frontend - `Mage::getModel('stuntcoders_simplemenu/simplemenu')->getMenu('<menu code>')`
+* Fetch menu on frontend - `Mage::getModel('stuntcoders_simplemenu/simplemenu')->getMenu('<menu code>');`
 
 
