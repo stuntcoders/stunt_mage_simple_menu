@@ -7,30 +7,16 @@
     <div class="fieldset fieldset-wide">
         <div class="hor-scroll">
             <div id="label-special" class="checkbox-list">
-                <label>
-                    <input type="checkbox" name="Login" value="1">
-                    <?php echo Mage::helper('stuntcoders_simplemenu')->__('Login') ?>
-                </label><br/>
-                <label>
-                    <input type="checkbox" name="Logout" value="2">
-                    <?php echo Mage::helper('stuntcoders_simplemenu')->__('Logout') ?>
-                </label><br/>
-                <label>
-                    <input type="checkbox" name="checkbox" value="3">
-                    <?php echo Mage::helper('stuntcoders_simplemenu')->__('Cart') ?>
-                </label><br/>
-                <label>
-                    <input type="checkbox" name="checkbox" value="4">
-                    <?php echo Mage::helper('stuntcoders_simplemenu')->__('Checkout') ?>
-                </label><br/>
-                <label>
-                    <input type="checkbox" name="checkbox" value="5">
-                    <?php echo Mage::helper('stuntcoders_simplemenu')->__('Wishlist') ?>
-                </label><br/>
-                <label>
-                    <input type="checkbox" name="checkbox" value="6">
-                    <?php echo Mage::helper('stuntcoders_simplemenu')->__('Account page') ?>
-                </label><br/>
+                <?php
+
+                foreach (Stuntcoders_Simplemenu_Model_Simplemenu_Special::getPagesArray() as $id => $name) {
+                    echo "<label>"
+                        . "<input type='checkbox' name='Login' value='{$id}'>"
+                        . Mage::helper('stuntcoders_simplemenu')->__($name)
+                        . "</label><br/>";
+                }
+
+                ?>
             </div>
             <button id="add-special"><?php echo Mage::helper('stuntcoders_simplemenu')->__('Add') ?></button>
         </div>

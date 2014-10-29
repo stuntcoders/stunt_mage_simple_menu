@@ -5,12 +5,16 @@
     <div class="fieldset fieldset-wide">
         <div class="hor-scroll">
             <div id="label-category" class="checkbox-list">
-                <?php foreach(Mage::helper('stuntcoders_simplemenu')->getCategoriesArray() as $categoryId => $categoryData): ?>
-                    <label class="level-<?php echo $categoryData['level']?>">
-                        <input type="checkbox" name="checkbox" value="<?php echo $categoryId?>">
-                        <?php echo isset($categoryData['name']) ? $categoryData['name'] : ""; ?>
-                    </label><br/>
-                <?php endforeach; ?>
+                <?php
+
+                foreach (Mage::helper('stuntcoders_simplemenu')->getCategoriesArray() as $categoryId => $categoryData) {
+                    echo "<label class='level-{$categoryData['level']}'>"
+                        . "<input type='checkbox' name='checkbox' value='{$categoryId}'>"
+                        . (isset($categoryData['name']) ? $categoryData['name'] : "")
+                        . "</label><br/>";
+                }
+
+                ?>
             </div>
             <button id="add-category"><?php echo Mage::helper('stuntcoders_simplemenu')->__('Add') ?></button>
         </div>

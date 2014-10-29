@@ -9,6 +9,18 @@ class Stuntcoders_Simplemenu_Model_Simplemenu_Special extends Mage_Core_Model_Ab
     const MENU_ITEM_SPECIAL_WISHLIST     = 5;
     const MENU_ITEM_SPECIAL_ACCOUNT_PAGE = 6;
 
+    public static function getPagesArray()
+    {
+        return array(
+            self::MENU_ITEM_SPECIAL_LOGIN        => "Login",
+            self::MENU_ITEM_SPECIAL_LOGOUT       => "Logout",
+            self::MENU_ITEM_SPECIAL_CART         => "Cart",
+            self::MENU_ITEM_SPECIAL_CHECKOUT     => "Checkout",
+            self::MENU_ITEM_SPECIAL_WISHLIST     => "Wishlist",
+            self::MENU_ITEM_SPECIAL_ACCOUNT_PAGE => "My Account"
+        );
+    }
+
     public static function formatMenuItem(&$menuItem)
     {
         $menuItem['url'] = self::_getUrl($menuItem['id']);

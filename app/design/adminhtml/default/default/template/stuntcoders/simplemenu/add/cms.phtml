@@ -7,13 +7,16 @@
     <div class="fieldset fieldset-wide">
         <div class="hor-scroll">
             <div id="label-cms" class="checkbox-list">
-                <?php foreach( Mage::getModel('cms/page')->getCollection() as $cmsPage): ;?>
-                    <label>
+                <?php
 
-                        <input type="checkbox" name="checkbox" value="<?php echo $cmsPage['page_id']; ?>">
-                        <?php echo $cmsPage['title']?>
-                    </label><br/>
-                <?php endforeach; ?>
+                foreach (Mage::getModel('cms/page')->getCollection() as $cmsPage) {
+                    echo "<label>"
+                        . "<input type='checkbox' name='checkbox' value='{$cmsPage['page_id']}'>"
+                        . $cmsPage['title']
+                        . "</label><br/>";
+                }
+
+                ?>
             </div>
             <button id="add-cms"><?php echo Mage::helper('stuntcoders_simplemenu')->__('Add') ?></button>
         </div>
