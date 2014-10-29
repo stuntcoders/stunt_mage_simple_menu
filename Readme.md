@@ -13,7 +13,7 @@ Menus can contain:
 ## Usage
 
 * Create menu - This can be done from admin panel (CMS -> Simple Menu)
-* Fetch menu on frontend - `Mage::helper('stuntcoders_simplemenu')->getMenu('<menu code>');`
+* Fetch menu on frontend - `Mage::helper('stuntcoders_simplemenu')->getMenu('menu_code');`
 
 Example for frontend output:
 ```php
@@ -28,8 +28,34 @@ Example for frontend output:
 </ul>
 ```
 
+Example for automatic frontend multi level menu output:
+```php
+<?php echo Mage::helper('stuntcoders_simplemenu')->getMenuOutput('main_menu');
+```
+
+To add your own classes and identifiers and output menu on frontend, you can use the following code:
+```php
+<?php 
+function outputMenu($menu)
+{
+    foreach ($menu as $menuItem) {
+        echo "<li><a href='{$menuItem['url']}'>{$menuItem['label']}</a>";
+        if (!empty($menuItem['children'])) {
+            echo "<ul>";
+            outputMenu($menuItem['children']);
+            echo "</ul>";
+        }
+        echo "</li>";
+    }
+}
+
+echo "<ul id='menu-main-menu' class='menu'>";
+
+$mainMenu = Mage::helper('stuntcoders_simplemenu')->getMenu('main_menu');
+outputMenu($mainMenu['value']);
+
+echo "</ul>";
+```
+
 ## Bugs to be resolved:
-* When saving menu for the second time (without editing it) it looses all the data
-* When fetching CMS pages, we get links from My Account pages...?!?!?
-* Input fields have a lots of spaces around them selves
 * Output is generally sloppy. Letters are small where they should be large, English is incorrect, as well as the name of the module.
