@@ -29,7 +29,7 @@ class Stuntcoders_Simplemenu_Model_Simplemenu extends Mage_Core_Model_Abstract
                 Stuntcoders_Simplemenu_Model_Simplemenu_Category::formatMenuItem($menuItem);
                 break;
             case self::MENU_ITEM_TYPE_CMS_PAGE:
-                Stuntcoders_Simplemenu_Model_Simplemenu_Special::formatMenuItem($menuItem);
+                Stuntcoders_Simplemenu_Model_Simplemenu_Cms::formatMenuItem($menuItem);
                 break;
             case self::MENU_ITEM_TYPE_SPECIAL:
                 Stuntcoders_Simplemenu_Model_Simplemenu_Special::formatMenuItem($menuItem);
