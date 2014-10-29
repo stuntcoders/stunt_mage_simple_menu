@@ -29,7 +29,4 @@ Example for frontend output:
 ```
 
 ## Bugs to be resolved:
-* When saving menu for the second time (without editing it) it looses all the data
-* When fetching CMS pages, we get links from My Account pages...?!?!?
-* Input fields have a lots of spaces around them selves
 * Output is generally sloppy. Letters are small where they should be large, English is incorrect, as well as the name of the module.
