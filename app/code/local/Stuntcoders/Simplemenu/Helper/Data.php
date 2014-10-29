@@ -21,6 +21,28 @@ class Stuntcoders_Simplemenu_Helper_Data extends Mage_Core_Helper_Abstract
         return $menuData;
     }
 
+    private function _outputMenu($menu)
+    {
+        $out = "";
+
+        foreach ($menu as $menuItem) {
+            $out .= "<li><a href='{$menuItem['url']}'>{$menuItem['label']}</a>";
+
+            if (!empty($menuItem['children'])) {
+                $out .= "<ul>" . $this->_outputMenu($menuItem['children']) . "</ul>";
+            }
+            $out .= "</li>";
+        }
+
+        return $out;
+    }
+
+    public function getMenuOutput($code)
+    {
+        $mainMenu = Mage::helper('stuntcoders_simplemenu')->getMenu('main_menu');
+        return "<ul id='$code'>" . $this->_outputMenu($mainMenu['value']) . "</ul>";
+    }
+
     public function getCategoriesArray()
     {
         return Mage::getModel('catalog/category')
