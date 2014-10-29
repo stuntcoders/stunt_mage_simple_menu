@@ -5,6 +5,7 @@ jQuery(document).ready(function($) {
     };
 
     $('.dd').nestable(options);
+    updateMenuValue();
 
     $('#add-link').click(function() {
         $('#label-link').removeClass("validation-failed");
@@ -97,6 +98,7 @@ jQuery(document).ready(function($) {
     $('.dd').on("click", ".dd-delete", function(e) {
         $(this).closest("li.dd-item").remove();
 
+        updateMenuValue();
         e.preventDefault();
     });
 
