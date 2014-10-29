@@ -1,9 +1,10 @@
 <?php
+$menu = array();
 if (Mage::registry('simplemenu_data')) {
-    $menu = Mage::registry('simplemenu_data')->getData();
-    $menu = json_decode($menu['value'], true);
-} else {
-    $menu = array();
+    $menuData = Mage::registry('simplemenu_data')->getData();
+    if (!empty($menuData['value'])) {
+        $menu = json_decode($menuData['value'], true);
+    }
 }
 ?>
 <?php
@@ -24,9 +25,9 @@ function echoMenuItems(array $menu)
             default:
                 break;
         }
-?>
+        ?>
         <li class="dd-item" data-type="<?php echo $menuItem['type']?>"
-                 data-label="<?php echo $menuItem['label']?>"
+            data-label="<?php echo $menuItem['label']?>"
             <?php echo Mage::helper('stuntcoders_simplemenu')->getMenuItemDataUrl($menuItem); ?>
             <?php echo Mage::helper('stuntcoders_simplemenu')->getMenuItemDataTypeName($menuItem); ?>
             <?php echo Mage::helper('stuntcoders_simplemenu')->getMenuItemDataSubcategories($menuItem); ?>
@@ -67,7 +68,7 @@ function echoMenuItems(array $menu)
                 </ol>
             <?php endif; ?>
         </li>
-<?php
+    <?php
     }
 }
 ?>

@@ -7,10 +7,11 @@
     <div class="fieldset fieldset-wide">
         <div class="hor-scroll">
             <div id="label-cms" class="checkbox-list">
-                <?php foreach(Mage::getModel('cms/page')->getCollection()->toOptionArray() as $dmsPageId => $cmsPage): ?>
+                <?php foreach( Mage::getModel('cms/page')->getCollection() as $cmsPage): ;?>
                     <label>
-                        <input type="checkbox" name="checkbox" value="<?php echo $dmsPageId?>">
-                        <?php echo $cmsPage['label']?>
+
+                        <input type="checkbox" name="checkbox" value="<?php echo $cmsPage['page_id']; ?>">
+                        <?php echo $cmsPage['title']?>
                     </label><br/>
                 <?php endforeach; ?>
             </div>
