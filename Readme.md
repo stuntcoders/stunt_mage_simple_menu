@@ -30,11 +30,12 @@ Example for frontend output:
 
 Example for automatic frontend multi level menu output:
 ```php
-echo Mage::helper('stuntcoders_simplemenu')->getMenuOutput('main_menu');
+<?php echo Mage::helper('stuntcoders_simplemenu')->getMenuOutput('main_menu');
 ```
 
 To add your own classes and identifiers and output menu on frontend, you can use the following code:
 ```php
+<?php 
 function outputMenu($menu)
 {
     foreach ($menu as $menuItem) {
