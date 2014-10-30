@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<jstranslator>
+    <simplemenu-edit translate="message" module="stuntcoders_simplemenu">
+        <message>Edit</message>
+    </simplemenu-edit>
+    <simplemenu-delete translate="message" module="stuntcoders_simplemenu">
+        <message>Delete</message>
+    </simplemenu-delete>
+    <simplemenu-save translate="message" module="stuntcoders_simplemenu">
+        <message>Save</message>
+    </simplemenu-save>
+</jstranslator>
+
