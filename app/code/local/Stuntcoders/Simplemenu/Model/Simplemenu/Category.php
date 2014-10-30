@@ -12,10 +12,6 @@ class Stuntcoders_Simplemenu_Model_Simplemenu_Category extends Mage_Core_Model_A
         $category = Mage::getModel("catalog/category")->load($menuItem['id']);
         $menuItem['url'] = $category->getUrl();
 
-        if ($menuItem['subcategories'] <= 0) {
-            return;
-        }
-
         $level = (int) $category->getLevel() + (int) $menuItem['subcategories'];
 
         // Add subcategories
