@@ -1,9 +1,10 @@
-app/code/local/Stuntcoders/Simplemenu                                           app/code/local/Stuntcoders/Simplemenu
+app/code/local/Stuntcoders/Simplemenu                                        app/code/local/Stuntcoders/Simplemenu
 
 app/design/adminhtml/default/default/layout/stuntcoders_simplemenu.xml       app/design/adminhtml/default/default/layout/stuntcoders_simplemenu.xml
 app/design/adminhtml/default/default/template/stuntcoders/simplemenu/*       app/design/adminhtml/default/default/template/stuntcoders/simplemenu
 
 app/etc/modules/*                                                            app/etc/modules/
+app/locale/nb_NO/*                                                           app/locale/nb_NO/
 
 skin/adminhtml/default/default/stuntcoders_simplemenu.css                    skin/adminhtml/default/default/stuntcoders_simplemenu.css
 js/stuntcoders/*                                                             js/stuntcoders/

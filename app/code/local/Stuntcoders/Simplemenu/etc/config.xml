@@ -72,6 +72,24 @@
                 </stuntcoders_simplemenu>
             </updates>
         </layout>
+        <translate>
+            <modules>
+                <Custom_Module>
+                    <files>
+                        <default>Custom_Module.csv</default>
+                    </files>
+                </Custom_Module>
+            </modules>
+        </translate>
+        <translate>
+            <modules>
+                <Stuntcoders_Simplemenu>
+                    <files>
+                        <default>Stuntcoders_Simplemenu.csv</default>
+                    </files>
+                </Stuntcoders_Simplemenu>
+            </modules>
+        </translate>
     </adminhtml>
     <admin>
         <routers>
