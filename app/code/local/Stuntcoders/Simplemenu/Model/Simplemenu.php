@@ -25,9 +25,13 @@ class Stuntcoders_Simplemenu_Model_Simplemenu extends Mage_Core_Model_Abstract
         }
         $this->load($menuId);
 
-        $menu = $this->_getMenuData();
+        if ($cachedMenu = $this->getCachedValue()) {
+            return json_decode($cachedMenu, true);
+        }
 
-        $this->_formatMenu($menu);
+        $menu = json_decode($this->getValue(), true);
+
+        $this->_formatMenu($menu)->_cacheMenu($menu);
 
         return $menu;
     }
@@ -47,6 +51,8 @@ class Stuntcoders_Simplemenu_Model_Simplemenu extends Mage_Core_Model_Abstract
 
             $menuItem = $this->_formatMenuItem($menuItem);
         }
+
+        return $this;
     }
 
     public function _formatMenuItem($menuItem)
@@ -80,9 +86,14 @@ class Stuntcoders_Simplemenu_Model_Simplemenu extends Mage_Core_Model_Abstract
         return $model->formatMenuItem($menuItem);
     }
 
-    protected function _getMenuData()
+    protected function _cacheMenu($menu)
     {
-        return json_decode($this->getValue(), true);
+        Zend_Debug::dump($this->getData());
+        $this->setData("cached_value", "trt")->save();
+        Zend_Debug::dump($this->getData());
+        $this->setCachedValue(json_encode($menu))->save();
+
+        return $this;
     }
 
     protected function _outputMenu($menu)
