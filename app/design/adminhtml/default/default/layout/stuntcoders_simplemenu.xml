@@ -14,7 +14,7 @@
             <action method="addJs"><script>stuntcoders/simplemenu/jquery.nestable.js</script></action>
             <action method="addJs"><script>stuntcoders/simplemenu/noconflict.js</script></action>
             <action method="addJs"><script>stuntcoders/simplemenu/simplemenu.js</script></action>
-            <action method="addCss"><stylesheet>stuntcoders_simplemenu.css</stylesheet></action>
+            <action method="addCss"><stylesheet>stuntcoders/simplemenu.css</stylesheet></action>
         </reference>
         <reference name="content">
             <block type="stuntcoders_simplemenu/simplemenu_add" name="simplemenu.add" template="stuntcoders/simplemenu/add.phtml">
