@@ -21,7 +21,7 @@ Example for frontend output:
 <?php
 	$mainMenu = Mage::helper('stuntcoders_simplemenu')->getMenu('main_menu');
 
-	foreach($mainMenu['value'] as $menuItem) {
+	foreach ($mainMenu['value'] as $menuItem) {
 		echo "<li><a href='{$menuItem['url']}'>{$menuItem['label']}</a></li>";
 	}
 ?>
