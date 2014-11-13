@@ -52,6 +52,8 @@ function echoMenuItems(array $menu)
                         <?php echo Mage::helper('stuntcoders_simplemenu')->__('Url: '); ?>
                         <input type="text" value = "" class="dd-field-url">
                     </div>
+                <?php endif; ?>
+                <?php if ((int) $menuItem['type'] !== Stuntcoders_Simplemenu_Model_Simplemenu::MENU_ITEM_TYPE_LINK): ?>
                     <div>
                         <?php echo Mage::helper('stuntcoders_simplemenu')->__('Type: ') . $itemTypeName?>
                     </div>
