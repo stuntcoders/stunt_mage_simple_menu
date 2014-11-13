@@ -12,8 +12,7 @@ class Stuntcoders_Simplemenu_SimplemenuController extends Mage_Adminhtml_Control
     {
         if ($this->getRequest()->getParam('id')) {
             Mage::register('simplemenu_data',
-                Mage::getModel('stuntcoders_simplemenu/simplemenu')->load($this->getRequest()
-                    ->getParam('id'))
+                Mage::getModel('stuntcoders_simplemenu/simplemenu')->load($this->getRequest()->getParam('id'))
             );
         }
 
