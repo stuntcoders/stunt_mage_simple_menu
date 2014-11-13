@@ -41,19 +41,17 @@ function echoMenuItems(array $menu)
                     <?php echo Mage::helper('stuntcoders_simplemenu')->__('Label: '); ?>
                     <input type="text" value = "" class="dd-field-label">
                 </div>
-                <?php if ((int) $menuItem['type'] === 2): ?>
+                <?php if ((int) $menuItem['type'] === Stuntcoders_Simplemenu_Model_Simplemenu::MENU_ITEM_TYPE_CATEGORY): ?>
                     <div>
                         <?php echo Mage::helper('stuntcoders_simplemenu')->__('Depth of subcategories to load'); ?>
                         <input type="text" value = "" class="dd-field-subcategories">
                     </div>
                 <?php endif; ?>
-                <?php if ((int) $menuItem['type'] === 1): ?>
+                <?php if ((int) $menuItem['type'] === Stuntcoders_Simplemenu_Model_Simplemenu::MENU_ITEM_TYPE_LINK): ?>
                     <div>
                         <?php echo Mage::helper('stuntcoders_simplemenu')->__('Url: '); ?>
                         <input type="text" value = "" class="dd-field-url">
                     </div>
-                <?php endif; ?>
-                <?php if ((int) $menuItem['type'] !== 1): ?>
                     <div>
                         <?php echo Mage::helper('stuntcoders_simplemenu')->__('Type: ') . $itemTypeName?>
                     </div>
