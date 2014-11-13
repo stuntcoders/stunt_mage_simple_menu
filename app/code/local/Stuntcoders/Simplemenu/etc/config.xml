@@ -68,7 +68,7 @@
         <layout>
             <updates>
                 <stuntcoders_simplemenu>
-                    <file>stuntcoders_simplemenu.xml</file>
+                    <file>stuntcoders/simplemenu.xml</file>
                 </stuntcoders_simplemenu>
             </updates>
         </layout>
