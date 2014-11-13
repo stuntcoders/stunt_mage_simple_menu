@@ -17,16 +17,13 @@ class Stuntcoders_Simplemenu_Model_Simplemenu_Category extends Stuntcoders_Simpl
         // Add subcategories
         $tree = array();
         foreach (explode(",", $category->getAllChildren()) as $childCategory) {
-            if ($menuItem['id'] == $childCategory) {
-                continue;
-            }
             $childCategory = Mage::getModel("catalog/category")->load($childCategory);
 
             if ($level < (int) $childCategory->getLevel()) {
                 continue;
             }
 
-            if ($childCategory->getParentId() === $menuItem['id']) {
+            if ($childCategory->getParentId() == $menuItem['id']) {
                 $tree[] = $this->_getSubcategoryItemMenu($childCategory);
             } else {
                 $this->_createCategoriesTree($tree, $childCategory);
@@ -46,10 +43,11 @@ class Stuntcoders_Simplemenu_Model_Simplemenu_Category extends Stuntcoders_Simpl
     {
         foreach ($tree as $key => $node) {
             if ($node['id'] == $childCategory->getParentId()) {
-                $tree[$key]["children"][] = self::_getSubcategoryItemMenu($childCategory);
+                Zend_Debug::dump($this->_getSubcategoryItemMenu($childCategory));
+                $tree[$key]["children"][] = $this->_getSubcategoryItemMenu($childCategory);
             } else {
                 if (isset($tree[$key]['children'])) {
-                    self::_createCategoriesTree($tree[$key]['children'], $childCategory);
+                    $this->_createCategoriesTree($tree[$key]['children'], $childCategory);
                 }
             }
         }

@@ -41,10 +41,11 @@ class Stuntcoders_Simplemenu_Model_Simplemenu extends Mage_Core_Model_Abstract
     protected function _formatMenu(&$menu)
     {
         foreach ($menu as &$menuItem) {
-            $menuItem = $this->_formatMenuItem($menuItem);
             if (isset($menuItem["children"])) {
                 $this->_formatMenu($menuItem["children"]);
             }
+            
+            $menuItem = $this->_formatMenuItem($menuItem);
         }
     }
 
@@ -80,7 +81,7 @@ class Stuntcoders_Simplemenu_Model_Simplemenu extends Mage_Core_Model_Abstract
 //        unset($menuItem['subcategories']);
 //        unset($menuItem['id']);
 //        unset($menuItem['type']);
-        
+
         return $model->formatMenuItem($menuItem);
     }
 
