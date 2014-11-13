@@ -1,6 +1,6 @@
 <?php
 
-class Stuntcoders_Simplemenu_Model_Simplemenu_Special extends Mage_Core_Model_Abstract
+class Stuntcoders_Simplemenu_Model_Simplemenu_Special extends Stuntcoders_Simplemenu_Model_Abstract
 {
     const MENU_ITEM_SPECIAL_LOGIN        = 1;
     const MENU_ITEM_SPECIAL_LOGOUT       = 2;
@@ -21,12 +21,14 @@ class Stuntcoders_Simplemenu_Model_Simplemenu_Special extends Mage_Core_Model_Ab
         );
     }
 
-    public static function formatMenuItem(&$menuItem)
+    public function formatMenuItem($menuItem)
     {
-        $menuItem['url'] = self::_getUrl($menuItem['id']);
+        $menuItem['url'] = $this->_getUrl($menuItem);
+
+        return $menuItem;
     }
 
-    private static function _getUrl($menuItem)
+    private function _getUrl($menuItem)
     {
         switch ($menuItem['id']) {
             case self::MENU_ITEM_SPECIAL_LOGIN:

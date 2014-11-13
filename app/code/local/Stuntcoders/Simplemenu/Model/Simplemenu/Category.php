@@ -1,9 +1,9 @@
 <?php
 
-class Stuntcoders_Simplemenu_Model_Simplemenu_Category extends Mage_Core_Model_Abstract
+class Stuntcoders_Simplemenu_Model_Simplemenu_Category extends Stuntcoders_Simplemenu_Model_Abstract
 {
 
-    public static function formatMenuItem(&$menuItem)
+    public function formatMenuItem($menuItem)
     {
         if ((int)$menuItem['type'] !== Stuntcoders_Simplemenu_Model_Simplemenu::MENU_ITEM_TYPE_CATEGORY) {
             return null;
@@ -27,9 +27,9 @@ class Stuntcoders_Simplemenu_Model_Simplemenu_Category extends Mage_Core_Model_A
             }
 
             if ($childCategory->getParentId() === $menuItem['id']) {
-                $tree[] = self::_getSubcategoryItemMenu($childCategory);
+                $tree[] = $this->_getSubcategoryItemMenu($childCategory);
             } else {
-                self::_createCategoriesTree($tree, $childCategory);
+                $this->_createCategoriesTree($tree, $childCategory);
             }
         }
 
@@ -38,9 +38,11 @@ class Stuntcoders_Simplemenu_Model_Simplemenu_Category extends Mage_Core_Model_A
         }
 
         $menuItem['children'] = array_merge($tree, $menuItem['children']);
+
+        return $menuItem;
     }
 
-    private static function _createCategoriesTree(&$tree, $childCategory)
+    private function _createCategoriesTree(&$tree, $childCategory)
     {
         foreach ($tree as $key => $node) {
             if ($node['id'] == $childCategory->getParentId()) {
@@ -53,7 +55,7 @@ class Stuntcoders_Simplemenu_Model_Simplemenu_Category extends Mage_Core_Model_A
         }
     }
 
-    private static function _getSubcategoryItemMenu($category)
+    private function _getSubcategoryItemMenu($category)
     {
         $temp = array();
         $temp['url'] = $category->getUrl();

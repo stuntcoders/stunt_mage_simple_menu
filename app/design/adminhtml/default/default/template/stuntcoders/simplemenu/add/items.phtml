@@ -26,7 +26,8 @@ function echoMenuItems(array $menu)
                 break;
         }
         ?>
-        <li class="dd-item" data-type="<?php echo $menuItem['type']?>"
+        <li class="dd-item"
+            data-type="<?php echo $menuItem['type']?>"
             data-label="<?php echo $menuItem['label']?>"
             <?php echo Mage::helper('stuntcoders_simplemenu')->getMenuItemDataUrl($menuItem); ?>
             <?php echo Mage::helper('stuntcoders_simplemenu')->getMenuItemDataTypeName($menuItem); ?>
