@@ -25,6 +25,10 @@ class Stuntcoders_Simplemenu_Model_Simplemenu_Special extends Stuntcoders_Simple
     {
         $menuItem['url'] = $this->_getUrl($menuItem);
 
+        unset($menuItem['typename']);
+        unset($menuItem['id']);
+        unset($menuItem['type']);
+
         return $menuItem;
     }
 

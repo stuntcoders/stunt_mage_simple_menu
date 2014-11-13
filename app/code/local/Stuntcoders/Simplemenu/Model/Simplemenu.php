@@ -44,7 +44,7 @@ class Stuntcoders_Simplemenu_Model_Simplemenu extends Mage_Core_Model_Abstract
             if (isset($menuItem["children"])) {
                 $this->_formatMenu($menuItem["children"]);
             }
-            
+
             $menuItem = $this->_formatMenuItem($menuItem);
         }
     }
@@ -76,11 +76,6 @@ class Stuntcoders_Simplemenu_Model_Simplemenu extends Mage_Core_Model_Abstract
                 return array();
                 break;
         }
-
-//        unset($menuItem['typename']);
-//        unset($menuItem['subcategories']);
-//        unset($menuItem['id']);
-//        unset($menuItem['type']);
 
         return $model->formatMenuItem($menuItem);
     }

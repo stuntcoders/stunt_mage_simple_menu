@@ -36,6 +36,10 @@ class Stuntcoders_Simplemenu_Model_Simplemenu_Category extends Stuntcoders_Simpl
 
         $menuItem['children'] = array_merge($tree, $menuItem['children']);
 
+        unset($menuItem['subcategories']);
+        unset($menuItem['id']);
+        unset($menuItem['type']);
+
         return $menuItem;
     }
 

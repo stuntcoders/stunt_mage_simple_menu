@@ -4,6 +4,8 @@ class Stuntcoders_Simplemenu_Model_Simplemenu_Link extends Stuntcoders_Simplemen
 {
     public function formatMenuItem($menuItem)
     {
+
+        unset($menuItem['type']);
         return $menuItem;
     }
 }

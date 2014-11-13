@@ -6,6 +6,9 @@ class Stuntcoders_Simplemenu_Model_Simplemenu_Cms extends Stuntcoders_Simplemenu
     {
         $menuItem['url'] = Mage::helper('cms/page')->getPageUrl($menuItem['id']);
 
+        unset($menuItem['id']);
+        unset($menuItem['type']);
+
         return $menuItem;
     }
 }
