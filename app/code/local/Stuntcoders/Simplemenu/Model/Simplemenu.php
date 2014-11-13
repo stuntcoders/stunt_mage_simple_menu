@@ -80,7 +80,7 @@ class Stuntcoders_Simplemenu_Model_Simplemenu extends Mage_Core_Model_Abstract
 //        unset($menuItem['subcategories']);
 //        unset($menuItem['id']);
 //        unset($menuItem['type']);
-
+        
         return $model->formatMenuItem($menuItem);
     }
 
