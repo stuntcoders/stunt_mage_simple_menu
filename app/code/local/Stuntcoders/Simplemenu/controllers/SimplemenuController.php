@@ -73,6 +73,29 @@ class Stuntcoders_Simplemenu_SimplemenuController extends Mage_Adminhtml_Control
         $this->_redirect('*/*/index');
     }
 
+    public function flushcacheAction()
+    {
+        if (!$this->getRequest()->getParam('id')) {
+            $this->_redirect('*/*/index');
+            return;
+        }
+
+        try {
+            Mage::getModel('stuntcoders_simplemenu/simplemenu')
+                ->load($this->getRequest()->getParam('id'))
+                ->setCachedValue("")
+                ->save();
+
+            Mage::getSingleton('adminhtml/session')->addSuccess(
+                Mage::helper('stuntcoders_simplemenu')->__('Simple Menus cache successfully flushed'));
+        } catch (Exception $e) {
+            Mage::getSingleton('adminhtml/session')->addError(
+                Mage::helper('stuntcoders_simplemenu')->__('Simple Menu cache could not be flushed'));
+        }
+
+        $this->_redirectUrl($this->_getRefererUrl());
+    }
+
     public function massDeleteAction()
     {
         $idList = $this->getRequest()->getParam('ids');

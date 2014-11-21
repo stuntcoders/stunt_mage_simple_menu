@@ -39,7 +39,7 @@ class Stuntcoders_Simplemenu_Model_Simplemenu extends Mage_Core_Model_Abstract
     public function getMenuOutput($code)
     {
         $menu = $this->getMenu($code);
-        return "<ul id='$code'>" . $this->_outputMenu($menu['value']) . "</ul>";
+        return "<ul id='{$code}'>" . $this->_outputMenu($menu) . "</ul>";
     }
 
     protected function _formatMenu(&$menu)
