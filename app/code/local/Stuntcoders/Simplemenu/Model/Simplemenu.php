@@ -88,7 +88,6 @@ class Stuntcoders_Simplemenu_Model_Simplemenu extends Mage_Core_Model_Abstract
 
     protected function _cacheMenu($menu)
     {
-        $this->setData("cached_value", "trt")->save();
         $this->setCachedValue(json_encode($menu))->save();
 
         return $this;
