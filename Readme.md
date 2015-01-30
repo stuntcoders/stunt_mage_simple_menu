@@ -13,15 +13,15 @@ Menus can contain:
 ## Usage
 
 * Create menu - This can be done from admin panel (CMS -> Simple Menu)
-* Fetch menu on frontend - `Mage::helper('stuntcoders_simplemenu')->getMenu('menu_code');`
+* Fetch menu on frontend - `Mage::getModel("stuntcoders_simplemenu/simplemenu")->getMenu('main_menu');`
 
 Example for frontend output:
 ```php
 <ul>
 <?php
-	$mainMenu = Mage::helper('stuntcoders_simplemenu')->getMenu('main_menu');
+	$mainMenu = Mage::getModel("stuntcoders_simplemenu/simplemenu")->getMenu('main_menu');
 
-	foreach ($mainMenu['value'] as $menuItem) {
+	foreach ($mainMenu as $menuItem) {
 		echo "<li><a href='{$menuItem['url']}'>{$menuItem['label']}</a></li>";
 	}
 ?>
@@ -30,7 +30,7 @@ Example for frontend output:
 
 Example for automatic frontend multi level menu output:
 ```php
-<?php echo Mage::helper('stuntcoders_simplemenu')->getMenuOutput('main_menu');
+<?php echo Mage::getModel("stuntcoders_simplemenu/simplemenu")->getMenu('main_menu');
 ```
 
 To add your own classes and identifiers and output menu on frontend, you can use the following code:
@@ -51,7 +51,7 @@ function outputMenu($menu)
 
 echo "<ul id='menu-main-menu' class='menu'>";
 
-$mainMenu = Mage::helper('stuntcoders_simplemenu')->getMenu('main_menu');
+$mainMenu = Mage::getModel("stuntcoders_simplemenu/simplemenu")->getMenu('main_menu');;
 outputMenu($mainMenu['value']);
 
 echo "</ul>";
