@@ -41,14 +41,19 @@ class Stuntcoders_Simplemenu_SimplemenuController extends Mage_Adminhtml_Control
 
             $menusModel->save();
 
+            $this->getRequest()->getParam('id') ?
+                $this->_redirectReferer('*/*/index') :
+                $this->_redirect('*/*/add', array('id' => $menusModel->getId()));
+
             Mage::getSingleton('adminhtml/session')->addSuccess(
                 Mage::helper('stuntcoders_simplemenu')->__('Simle Menu successfully saved'));
         } catch (Exception $e) {
             Mage::getSingleton('adminhtml/session')->addError(
                 Mage::helper('stuntcoders_simplemenu')->__('Simple Menu could not be saved'));
+
+            $this->_redirectReferer('*/*/index');
         }
 
-        $this->_redirectReferer('*/*/index');
     }
 
     public function deleteAction()
