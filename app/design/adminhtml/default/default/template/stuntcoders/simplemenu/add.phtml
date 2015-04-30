@@ -9,7 +9,6 @@
             <td class="a-right">
                 <?php
                     if ($this->getRequest()->getParam('id')) {
-                        echo $this->getChildHtml("simplemenu.flush_cache");
                         echo $this->getChildHtml("simplemenu.delete");
                     }
                 ?>

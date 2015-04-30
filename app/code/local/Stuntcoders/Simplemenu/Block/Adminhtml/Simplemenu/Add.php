@@ -28,15 +28,5 @@ class Stuntcoders_Simplemenu_Block_Adminhtml_Simplemenu_Add extends Mage_Adminht
                     'class'     => 'delete'
                 ))
         );
-
-        $this->setChild('simplemenu.flush_cache',
-            $this->getLayout()->createBlock('adminhtml/widget_button')
-                ->setData(array(
-                    'label'     => Mage::helper('stuntcoders_simplemenu')->__('Flush Cache'),
-                    'onclick'   => "setLocation('" . $this->getUrl('*/*/flushcache',
-                            array('id' => $this->getRequest()->getParam('id'))) . "')",
-                    'class'     => 'delete'
-                ))
-        );
     }
 }
