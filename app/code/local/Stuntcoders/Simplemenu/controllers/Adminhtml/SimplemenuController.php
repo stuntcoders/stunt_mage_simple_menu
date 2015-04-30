@@ -1,6 +1,6 @@
 <?php
 
-class Stuntcoders_Simplemenu_SimplemenuController extends Mage_Adminhtml_Controller_Action
+class Stuntcoders_Simplemenu_Adminhtml_SimplemenuController extends Mage_Adminhtml_Controller_Action
 {
     public function indexAction()
     {

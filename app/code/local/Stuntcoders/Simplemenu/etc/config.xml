@@ -60,7 +60,7 @@
                     <simplemenu translate="title" module="stuntcoders_simplemenu">
                         <title>Simple Menu</title>
                         <sort_order>0</sort_order>
-                        <action>stuntcoders/simplemenu/index</action>
+                        <action>adminhtml/simplemenu/index</action>
                     </simplemenu>
                 </children>
             </cms>
@@ -93,13 +93,13 @@
     </adminhtml>
     <admin>
         <routers>
-            <stuntcoders_simplemenu>
-                <use>admin</use>
+            <adminhtml>
                 <args>
-                    <module>Stuntcoders_Simplemenu</module>
-                    <frontName>stuntcoders</frontName>
+                    <modules>
+                        <Stuntcoders_Simplemenu before="Mage_Adminhtml">Stuntcoders_Simplemenu_Adminhtml</Stuntcoders_Simplemenu>
+                    </modules>
                 </args>
-            </stuntcoders_simplemenu>
+            </adminhtml>
         </routers>
     </admin>
 </config>

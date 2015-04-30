@@ -1,6 +1,6 @@
 <?php
 
-class Stuntcoders_Simplemenu_Block_Simplemenu_Add extends Mage_Adminhtml_Block_Widget_Form_Container
+class Stuntcoders_Simplemenu_Block_Adminhtml_Simplemenu_Add extends Mage_Adminhtml_Block_Widget_Form_Container
 {
     public function __construct()
     {
