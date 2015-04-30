@@ -16,7 +16,7 @@ Here is the overview of functionalities provided by Simple Magento Menus extensi
 
 Magento Simple Menu can easily be integrated through view in .phtml files or via CMS. It doesn't come with default CSS, as we didn't want to interfere in order to keep it simple ;-)
 
-Front end of Magento Simple Menu module is primarily designed for developers, to give them flexibility in implementation, while back-end is designed for easy use and customers (non-developers).
+Front-end of Magento Simple Menu module is primarily designed for developers, to give them flexibility in implementation, while back-end is designed for easy use and customers (non-developers).
 
 
 ## Usage ##
@@ -39,7 +39,7 @@ Example of .phtml implementation of menu views:
 
 To fetch menu on front-end you can use following code: `Mage::getModel("stuntcoders_simplemenu/simplemenu")->getMenu('main_menu');`
 
-Example for frontend output:
+Example for front-end output:
 ```php
 <ul>
 <?php
