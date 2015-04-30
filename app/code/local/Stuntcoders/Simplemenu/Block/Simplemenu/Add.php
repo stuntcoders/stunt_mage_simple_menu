@@ -22,8 +22,9 @@ class Stuntcoders_Simplemenu_Block_Simplemenu_Add extends Mage_Adminhtml_Block_W
             $this->getLayout()->createBlock('adminhtml/widget_button')
                 ->setData(array(
                     'label'     => Mage::helper('stuntcoders_simplemenu')->__('Delete'),
-                    'onclick'   => "setLocation('".$this->getUrl('*/*/delete',
-                            array('id' => $this->getRequest()->getParam('id')))."')",
+                    'onclick'   => "deleteConfirm('"
+                        . Mage::helper('stuntcoders_simplemenu')->__('Are you sure you want to delete?') . "', '"
+                        . $this->getUrl('*/*/delete', array('id' => $this->getRequest()->getParam('id'))) . "')",
                     'class'     => 'delete'
                 ))
         );
@@ -32,8 +33,8 @@ class Stuntcoders_Simplemenu_Block_Simplemenu_Add extends Mage_Adminhtml_Block_W
             $this->getLayout()->createBlock('adminhtml/widget_button')
                 ->setData(array(
                     'label'     => Mage::helper('stuntcoders_simplemenu')->__('Flush Cache'),
-                    'onclick'   => "setLocation('".$this->getUrl('*/*/flushcache',
-                            array('id' => $this->getRequest()->getParam('id')))."')",
+                    'onclick'   => "setLocation('" . $this->getUrl('*/*/flushcache',
+                            array('id' => $this->getRequest()->getParam('id'))) . "')",
                     'class'     => 'delete'
                 ))
         );
