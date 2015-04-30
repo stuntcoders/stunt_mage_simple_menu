@@ -83,4 +83,6 @@ echo "</ul>";
 
 ### Magento CMS output of menu items ###
 Example of outputting menu via CMS block view:
+```php
 {{block type="stuntcoders_simplemenu/simplemenu" menu="main_menu"}}
+```
