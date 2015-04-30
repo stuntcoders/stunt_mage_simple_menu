@@ -54,7 +54,7 @@ Example for front-end output:
 
 Example for automatic front-end multi level menu output:
 ```php
-<?php echo Mage::getModel("stuntcoders_simplemenu/simplemenu")->getMenu('main_menu');
+<?php echo Mage::getModel("stuntcoders_simplemenu/simplemenu")->getMenu('main_menu'); ?>
 ```
 
 To add your own classes and identifiers and output menu on front-end, you can use the following code:
@@ -84,5 +84,5 @@ echo "</ul>";
 ### Magento CMS output of menu items ###
 Example of outputting menu via CMS block view:
 ```php
-{{block type="stuntcoders_simplemenu/simplemenu" menu="main_menu"}}
+{{block type="stuntcoders_simplemenu/simplemenu" code="main_menu"}}
 ```
