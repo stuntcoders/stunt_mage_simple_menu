@@ -21,7 +21,7 @@ Front-end of Magento Simple Menu module is primarily designed for developers, to
 
 ## Usage ##
 
-With WordPress-like look and feel, it shouldn't be too hard to teach users how to manage menus in Magento. We even made a video tutorial that you can share it with them: [https://www.youtube.com/watch?v=tAejsC_xh1k](https://www.youtube.com/watch?v=tAejsC_xh1k)
+With WordPress-like look and feel, it shouldn't be too hard to teach users how to manage menus in Magento. We even made a video tutorial that you can share it with them: [https://www.youtube.com/watch?v=_Jsv1FdBSr0](https://www.youtube.com/watch?v=_Jsv1FdBSr0)
 
 For those that don't like videos, there is an ASCII version here:
 * to manage menus go to **admin panel CMS -> Simple Menu**
