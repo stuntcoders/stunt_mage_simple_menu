@@ -9,16 +9,16 @@
         <models>
             <stuntcoders_simplemenu>
                 <class>Stuntcoders_Simplemenu_Model</class>
-                <resourceModel>stuntcoders_simplemenu_mysql4</resourceModel>
+                <resourceModel>stuntcoders_simplemenu_resource</resourceModel>
             </stuntcoders_simplemenu>
-            <stuntcoders_simplemenu_mysql4>
-                <class>Stuntcoders_Simplemenu_Model_Mysql4</class>
+            <stuntcoders_simplemenu_resource>
+                <class>Stuntcoders_Simplemenu_Model_Resource</class>
                 <entities>
                     <simplemenu>
                         <table>stuntcoders_simplemenu</table>
                     </simplemenu>
                 </entities>
-            </stuntcoders_simplemenu_mysql4>
+            </stuntcoders_simplemenu_resource>
         </models>
         <blocks>
             <stuntcoders_simplemenu>
