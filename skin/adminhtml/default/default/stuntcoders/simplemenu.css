@@ -5,31 +5,44 @@
 }
 
 .col-left {
-    float:left;
+    float: left;
     margin: 0;
     width: 19%;
     min-width: 200px;
 }
 
+@media screen and (max-width: 1280px) {
+    .col-main {
+        width: 70%;
+    }
+    .col-left {
+        width: 29%;
+    }
+}
+
 .checkbox-list {
     height: auto;
     max-height: 300px;
-    margin-bottom:20px;
+    margin-bottom: 20px;
     overflow-y: auto;
     overflow-x: hidden;
     white-space: nowrap;
 }
 
+.checkbox-list input[type="checkbox"] {
+    margin-right: 4px;
+}
+
 .dd-options {
-    position:absolute;
+    position: absolute;
     right: 0;
     top: 0;
     margin-right: 15px;
 }
 
 .dd-fields {
-    display:none;
-    margin-top:5px;
+    display: none;
+    margin-top: 5px;
 }
 
 .level-1 {
@@ -38,7 +51,7 @@
 
 .level-1 {
     padding-left: 10px;
- }
+}
 
 .level-2 {
     padding-left: 20px;
@@ -66,55 +79,114 @@
 
 .link-input-field > input[type=text] {
     float: right;
-    clear:both;
+    clear: both;
 }
 
-.dd { position: relative; display: block; margin: 0; padding: 0; max-width: 600px; list-style: none; font-size: 13px; line-height: 30px; }
+.dd {
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 600px;
+    list-style: none;
+    font-size: 13px;
+    line-height: 30px;
+}
 
-.dd-list { display: block; position: relative; margin: 0; padding: 0; list-style: none; }
-.dd-list .dd-list { padding-left: 30px; }
-.dd-collapsed .dd-list { display: none; }
+@media screen and (max-width: 1280px) {
+    .dd {
+        max-width: none;
+    }
+}
+
+.dd-list {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.dd-list .dd-list {
+    padding-left: 30px;
+}
+
+.dd-collapsed .dd-list {
+    display: none;
+}
 
 .dd-item,
 .dd-empty,
-.dd-placeholder { display: block; position: relative; margin: 0; padding: 0; min-height: 20px; font-size: 13px; line-height: 30px; }
+.dd-placeholder {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    min-height: 20px;
+    font-size: 13px;
+    line-height: 30px;
+}
 
 .dd-item > div {
     border: 1px solid #ccc;
     background: #fafafa;
     background: -webkit-linear-gradient(top, #fafafa 0%, #eee 100%);
-    background:    -moz-linear-gradient(top, #fafafa 0%, #eee 100%);
-    background:         linear-gradient(top, #fafafa 0%, #eee 100%);
-    -webkit-border-radius: 3px;
+    background: -moz-linear-gradient(top, #fafafa 0%, #eee 100%);
+    background: linear-gradient(top, #fafafa 0%, #eee 100%);
     border-radius: 3px;
-    box-sizing: border-box; -moz-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     padding: 0 5px 0 5px;
 }
 
-.dd-handle { display: block; margin: 0; padding: 5px 10px; color: #333; text-decoration: none; font-weight: bold;
-    height:30px;
+.dd-handle {
+    display: block;
+    margin: 0;
+    padding: 5px 10px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    height: 30px;
 }
 
 .dd-item > .dd-fields {
-    margin: 3px 0 0 0 ;
+    margin: 3px 0 0 0;
 }
 
 .dd-placeholder,
-.dd-empty { margin: 5px 0; padding: 0; min-height: 30px; background: #f2fbff; border: 1px dashed #b6bcbf; box-sizing: border-box; -moz-box-sizing: border-box; }
-.dd-empty { border: 1px dashed #bbb; min-height: 100px; background-color: #e5e5e5;
-    background-image: -webkit-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff),
-    -webkit-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
-    background-image:    -moz-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff),
-    -moz-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
-    background-image:         linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff),
-    linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+.dd-empty {
+    margin: 5px 0;
+    padding: 0;
+    min-height: 30px;
+    background: #f2fbff;
+    border: 1px dashed #b6bcbf;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.dd-empty {
+    border: 1px dashed #bbb;
+    min-height: 100px;
+    background-color: #e5e5e5;
+    background-image: -webkit-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff), -webkit-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+    background-image: -moz-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff), -moz-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+    background-image: linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff), linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
     background-size: 60px 60px;
     background-position: 0 0, 30px 30px;
 }
 
-.dd-dragel { position: absolute; pointer-events: none; z-index: 9999; }
-.dd-dragel > .dd-item .dd-handle { margin-top: 0; }
+.dd-dragel {
+    position: absolute;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.dd-dragel > .dd-item .dd-handle {
+    margin-top: 0;
+}
+
 .dd-dragel .dd-handle {
-    -webkit-box-shadow: 2px 4px 6px 0 rgba(0,0,0,.1);
-    box-shadow: 2px 4px 6px 0 rgba(0,0,0,.1);
+    -webkit-box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, .1);
+    box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, .1);
 }
