@@ -103,4 +103,9 @@ class Stuntcoders_Simplemenu_Adminhtml_SimplemenuController extends Mage_Adminht
         }
         $this->_redirect('*/*/index');
     }
+
+    protected function _isAllowed()
+    {
+        return Mage::getSingleton('admin/session')->isAllowed('cms/simplemenu');
+    }
 }
