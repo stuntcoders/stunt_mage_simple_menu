@@ -45,8 +45,8 @@ class Stuntcoders_Simplemenu_Model_Simplemenu extends Mage_Core_Model_Abstract
     protected function _formatMenu(&$menu)
     {
         foreach ($menu as &$menuItem) {
-            if (isset($menuItem["children"])) {
-                $this->_formatMenu($menuItem["children"]);
+            if (isset($menuItem['children'])) {
+                $this->_formatMenu($menuItem['children']);
             }
 
             $menuItem = $this->_formatMenuItem($menuItem);
@@ -61,11 +61,11 @@ class Stuntcoders_Simplemenu_Model_Simplemenu extends Mage_Core_Model_Abstract
             return array();
         }
 
-        if (!isset($menuItem["type"])) {
+        if (!isset($menuItem['type'])) {
             return array();
         }
 
-        switch ((int)$menuItem["type"]) {
+        switch ((int)$menuItem['type']) {
             case self::MENU_ITEM_TYPE_LINK:
                 $model = Mage::getModel('stuntcoders_simplemenu/simplemenu_link');
                 break;
@@ -83,6 +83,14 @@ class Stuntcoders_Simplemenu_Model_Simplemenu extends Mage_Core_Model_Abstract
                 break;
         }
 
+        if (!isset($menuItem['dummy']) || empty($menuItem['dummy'])) {
+            $menuItem['dummy'] = false;
+        }
+
+        if (!isset($menuItem['newtab']) || empty($menuItem['newtab'])) {
+            $menuItem['newtab'] = false;
+        }
+
         return $model->formatMenuItem($menuItem);
     }
 
@@ -95,7 +103,7 @@ class Stuntcoders_Simplemenu_Model_Simplemenu extends Mage_Core_Model_Abstract
 
     protected function _outputMenu($menu)
     {
-        $out = "";
+        $out = '';
 
         foreach ($menu as $menuItem) {
             $out .= "<li><a href='{$menuItem['url']}'>{$menuItem['label']}</a>";

@@ -1,27 +1,27 @@
 jQuery(document).ready(function($) {
     var options = {
-        expandBtnHTML   : "",
-        collapseBtnHTML : ""
+        expandBtnHTML   : '',
+        collapseBtnHTML : ''
     };
 
     $('.dd').nestable(options);
     updateMenuValue();
 
     $('#add-link').click(function() {
-        $('#label-link').removeClass("validation-failed");
-        $('#url-link').removeClass("validation-failed");
+        $('#label-link').removeClass('validation-failed');
+        $('#url-link').removeClass('validation-failed');
         $('.validation-advice').remove();
 
         var label = $('#label-link').val();
         var url = $('#url-link').val();
 
         if (label === '') {
-            $('#label-link').addClass("validation-failed");
-            $('#label-link').after('<div class="validation-advice"">This is a required field.</div>');
+            $('#label-link').addClass('validation-failed');
+            $('#label-link').after('<div class="validation-advice">This is a required field.</div>');
         }
 
         if (url === '') {
-            $('#url-link').addClass("validation-failed");
+            $('#url-link').addClass('validation-failed');
             $('#url-link').after('<div class="validation-advice">This is a required field.</div>');
         }
 
@@ -29,7 +29,9 @@ jQuery(document).ready(function($) {
             var data = {
                 type: 1,
                 label: label,
-                url: url
+                url: url,
+                newtab: false,
+                dummy: false
             };
 
             var el = $(getLinkMenuItem(data.label));
@@ -47,9 +49,11 @@ jQuery(document).ready(function($) {
         $('#label-category input:checkbox:checked').each(function () {
             var data = {
                 type: 2,
-                label: $(this).closest("label").text(),
-                subcategories: "0",
-                id: $(this).val()
+                label: $(this).closest('label').text(),
+                subcategories: '0',
+                id: $(this).val(),
+                newtab: false,
+                dummy: false
             };
             var el = $(getCategoryMenuItem(data.label));
             $(this).prop('checked', false);
@@ -64,8 +68,10 @@ jQuery(document).ready(function($) {
         $('#label-cms input:checkbox:checked').each(function () {
             var data = {
                 type: 3,
-                label: $(this).closest("label").text(),
-                id: $(this).val()
+                label: $(this).closest('label').text(),
+                id: $(this).val(),
+                newtab: false,
+                dummy: false
             };
 
             var el = $(getCmsMenuItem(data.label));
@@ -81,9 +87,11 @@ jQuery(document).ready(function($) {
         $('#label-special input:checkbox:checked').each(function () {
             var data = {
                 type: 4,
-                label: $(this).closest("label").text(),
-                typename: $(this).closest("label").text(),
-                id: $(this).val()
+                label: $(this).closest('label').text(),
+                typename: $(this).closest('label').text(),
+                id: $(this).val(),
+                newtab: false,
+                dummy: false
             };
 
             var el = $(getSpecialMenuItem(data.label));
@@ -95,34 +103,43 @@ jQuery(document).ready(function($) {
         updateMenuValue();
     });
 
-    $('.dd').on("click", ".dd-delete", function(e) {
+    $('.dd').on('click', '.dd-delete', function(e) {
         $(this).closest("li.dd-item").remove();
 
         updateMenuValue();
         e.preventDefault();
     });
 
-    $('.dd').on("click", ".dd-edit", function(e) {
+    $('.dd').on('click', '.dd-edit', function(e) {
         var menuItem = $(this).closest(".dd-item");
-        var hidden = menuItem.find(".dd-fields").first().is(":hidden");
-        menuItem.find(".dd-fields").first().slideToggle(500);
-        if(hidden) {
-            // Set edit fields values to match items data values
-            menuItem.find('.dd-field-label').first().val(menuItem.data("label"));
-            menuItem.find('.dd-field-url').first().val(menuItem.data("url"));
-            menuItem.find('.dd-field-subcategories').first().val(menuItem.data("subcategories"));
+        var hidden = menuItem.find('.dd-fields').first().is(':hidden');
+        menuItem.find('.dd-fields').first().slideToggle(500);
 
-            menuItem.find('.dd-field-id').first().html(menuItem.data("id"));
-            menuItem.find('.dd-field-typename').first().html(menuItem.data("typename"));
+        if (hidden) {
+            // Set edit fields values to match items data values
+            menuItem.find('.dd-field-label').first().val(menuItem.data('label'));
+            menuItem.find('.dd-field-url').first().val(menuItem.data('url'));
+            menuItem.find('.dd-field-subcategories').first().val(menuItem.data('subcategories'));
+
+            // Add dummy and new tab checkbox options
+            menuItem.find('.dd-field-newtab').first().val(menuItem.data('newtab'));
+            menuItem.find('.dd-field-dummy').first().val(menuItem.data('dummy'));
+
+            menuItem.find('.dd-field-id').first().html(menuItem.data('id'));
+            menuItem.find('.dd-field-typename').first().html(menuItem.data('typename'));
             $(this).html(Translator.translate('Save'));
         } else {
             // Set items data values to match edit fields values
-            menuItem.data("label", menuItem.find('.dd-field-label').first().val());
-            menuItem.data("url", menuItem.find('.dd-field-url').first().val());
-            menuItem.data("subcategories", menuItem.find('.dd-field-subcategories').first().val());
+            menuItem.data('label', menuItem.find('.dd-field-label').first().val());
+            menuItem.data('url', menuItem.find('.dd-field-url').first().val());
+            menuItem.data('subcategories', menuItem.find('.dd-field-subcategories').first().val());
+
+            // Add dummy and newtab checkbox options
+            menuItem.data('newtab', menuItem.find('.dd-field-newtab').first().prop('checked'));
+            menuItem.data('dummy', menuItem.find('.dd-field-dummy').first().prop('checked'));
 
             // Update items text to match items label data
-            menuItem.find(".dd-handle").first().html(menuItem.data("label"));
+            menuItem.find('.dd-handle').first().html(menuItem.data('label'));
             $(this).html(Translator.translate('Edit'));
         }
         updateMenuValue();
@@ -145,19 +162,19 @@ jQuery(document).ready(function($) {
     }
 
     function getCmsMenuItem(label, id) {
-        return getTemplate(label, "#menu-item-template-fields-cms");
+        return getTemplate(label, '#menu-item-template-fields-cms');
     }
 
     function getSpecialMenuItem(label, id) {
-        return getTemplate(label, "#menu-item-template-fields-special");
+        return getTemplate(label, '#menu-item-template-fields-special');
     }
 
     function getLinkMenuItem(label) {
-        return getTemplate(label, "#menu-item-template-fields-link");
+        return getTemplate(label, '#menu-item-template-fields-link');
     }
 
     function getCategoryMenuItem(label) {
-        return getTemplate(label, "#menu-item-template-fields-category");
+        return getTemplate(label, '#menu-item-template-fields-category');
     }
 
     function getTemplate(label, fieldsId)
