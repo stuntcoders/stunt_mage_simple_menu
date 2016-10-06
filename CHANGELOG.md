@@ -1,10 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
-## 1.1.2 — 2016-10-06
+## Unreleased
 ### ADDED:
 - Open in new tab option
-- Dummy link
+- Dummy link option
 - Norwegian translations
 
 ## 1.1.1 — 2015-07-10
