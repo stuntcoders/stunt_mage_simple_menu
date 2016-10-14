@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.2.1 - 2016-10-14
+### ADDED:
+- Support for multistore
+
 ## 1.2.0 - 2016-10-06
 ### ADDED:
 - Open in new tab option
