@@ -34,6 +34,7 @@ class Stuntcoders_Simplemenu_Adminhtml_SimplemenuController extends Mage_Adminht
             $menusModel->setName($postData['name'])
                 ->setCode($postData['code'])
                 ->setValue($postData['simplemenu'])
+                ->setStores($postData['stores'])
                 ->setCachedValue("");
 
             if ($this->getRequest()->getParam('id')) {
@@ -47,7 +48,7 @@ class Stuntcoders_Simplemenu_Adminhtml_SimplemenuController extends Mage_Adminht
                 $this->_redirect('*/*/add', array('id' => $menusModel->getId()));
 
             Mage::getSingleton('adminhtml/session')->addSuccess(
-                Mage::helper('stuntcoders_simplemenu')->__('Simle Menu successfully saved'));
+                Mage::helper('stuntcoders_simplemenu')->__('Simple Menu successfully saved'));
         } catch (Exception $e) {
             Mage::getSingleton('adminhtml/session')->addError(
                 Mage::helper('stuntcoders_simplemenu')->__('Simple Menu could not be saved'));
