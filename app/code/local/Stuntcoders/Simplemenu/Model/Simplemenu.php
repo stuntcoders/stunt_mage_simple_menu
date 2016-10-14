@@ -17,6 +17,7 @@ class Stuntcoders_Simplemenu_Model_Simplemenu extends Mage_Core_Model_Abstract
         $menuId = Mage::getModel('stuntcoders_simplemenu/simplemenu')
             ->getCollection()
             ->addCodeFilter($code)
+            ->addStoreFilter(Mage::app()->getStore())
             ->getFirstItem()->getId();
 
         // Menu with such code does not exist

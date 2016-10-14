@@ -3,7 +3,7 @@
     <adminhtml_simplemenu_index>
         <reference name="content">
             <block type="stuntcoders_simplemenu/adminhtml_simplemenu" name="simplemenu.index" template="stuntcoders/simplemenu/index.phtml">
-                <block type="stuntcoders_simplemenu/adminhtml_simplemenu_grid" name="simplemenu.grid"></block>
+                <block type="stuntcoders_simplemenu/adminhtml_simplemenu_grid" name="simplemenu.grid"/>
             </block>
         </reference>
     </adminhtml_simplemenu_index>
