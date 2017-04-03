@@ -76,7 +76,7 @@ function outputMenu($menu)
 echo "<ul id='menu-main-menu' class='menu'>";
 
 $mainMenu = Mage::getModel("stuntcoders_simplemenu/simplemenu")->getMenu('main_menu');;
-outputMenu($mainMenu['value']);
+outputMenu($mainMenu);
 
 echo "</ul>";
 ```
